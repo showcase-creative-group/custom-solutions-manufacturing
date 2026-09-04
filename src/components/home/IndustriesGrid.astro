@@ -1,57 +1,46 @@
 ---
 // src/components/home/IndustriesGrid.astro
-import { Image } from 'astro:assets';
-
-// Import images from your specific folder structure
-import foodImg from '../../assets/industries/Food_Icon.png';
-import roboticsImg from '../../assets/industries/Robotics_Icon.png';
-import defenseImg from '../../assets/industries/Defense_Icon.png';
-import dataImg from '../../assets/industries/Data_Center_Icon.png';
-import constructionImg from '../../assets/industries/Construction_Icon.png';
-import medicalImg from '../../assets/industries/Medical_Icon.png';
-import techImg from '../../assets/industries/Technology_Icon.png';
-import autoImg from '../../assets/industries/Automotive_Icon.png';
 
 const industries = [
   { 
     title: "FOOD", 
     desc: "Custom-grade stainless steel fabrication and sanitary automation systems for food processing.", 
-    img: foodImg 
+    img: "/industries/Food_Icon.png" 
   },
   { 
     title: "ROBOTICS", 
     desc: "Precision components and structural frames built to exact tolerances for automated systems.", 
-    img: roboticsImg 
+    img: "/industries/Robotics_Icon.png" 
   },
   { 
     title: "DEFENSE", 
     desc: "ITAR-compliant manufacturing delivering ruggedized parts for mission-critical defense applications.", 
-    img: defenseImg 
+    img: "/industries/Defense_Icon.png" 
   },
   { 
     title: "DATA CENTERS", 
     desc: "Heavy-duty racking, cooling enclosures, and structural supports for enterprise server farms.", 
-    img: dataImg 
+    img: "/industries/Data_Center_Icon.png" 
   },
   { 
     title: "CONSTRUCTION", 
     desc: "Heavy-duty structural components and custom fabrication for large-scale construction projects.", 
-    img: constructionImg 
+    img: "/industries/Construction_Icon.png" 
   },
   { 
     title: "MEDICAL", 
     desc: "Cleanroom-compatible manufacturing of precision medical devices and surgical equipment housing.", 
-    img: medicalImg 
+    img: "/industries/Medical_Icon.png" 
   },
   { 
     title: "TECHNOLOGY", 
     desc: "Specialized machining and prototyping for rapid advancement in high-tech sectors.", 
-    img: techImg 
+    img: "/industries/Technology_Icon.png" 
   },
   { 
     title: "AUTOMOTIVE", 
     desc: "Scalable production of specialized automotive fixtures, tooling, and assembly line components.", 
-    img: autoImg 
+    img: "/industries/Automotive_Icon.png" 
   }
 ];
 ---
@@ -67,10 +56,11 @@ const industries = [
         <div class="industry-card">
           <h3>{industry.title}</h3>
           <div class="image-wrapper">
-            <Image 
+            <img 
               src={industry.img} 
               alt={`${industry.title} manufacturing capabilities`} 
-              width={800} 
+              width="800" 
+              height="800"
             />
           </div>
           <div class="card-content">
