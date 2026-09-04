@@ -1,23 +1,13 @@
 ---
 // src/pages/industries.astro
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-
-import foodImg from '../assets/industries/Food_Icon.png';
-import roboticsImg from '../assets/industries/Robotics_Icon.png';
-import defenseImg from '../assets/industries/Defense_Icon.png';
-import dataImg from '../assets/industries/Data_Center_Icon.png';
-import constructionImg from '../assets/industries/Construction_Icon.png';
-import medicalImg from '../assets/industries/Medical_Icon.png';
-import techImg from '../assets/industries/Technology_Icon.png';
-import autoImg from '../assets/industries/Automotive_Icon.png';
 
 const industrySectors = [
   {
     id: "food",
     code: "SEC-01",
     title: "Food",
-    img: foodImg,
+    img: "/industries/Food_Icon.png",
     spec: "FDA / USDA SANITARY GRADE",
     description: "High-throughput sanitary automation engineered for extreme chemical washdown environments and zero material degradation.",
     capabilities: [
@@ -31,7 +21,7 @@ const industrySectors = [
     id: "robotics",
     code: "SEC-02",
     title: "Robotics",
-    img: roboticsImg,
+    img: "/industries/Robotics_Icon.png",
     spec: "HIGH-SPEED DYNAMIC TOLERANCE",
     description: "Rigid, lightweight structural arm assemblies and end-effectors machined to ultra-tight mechanical tolerances for maximum cycle speeds.",
     capabilities: [
@@ -45,7 +35,7 @@ const industrySectors = [
     id: "defense",
     code: "SEC-03",
     title: "Defense",
-    img: defenseImg,
+    img: "/industries/Defense_Icon.png",
     spec: "ITAR REGISTERED // CMMC COMPLIANT",
     description: "Mission-critical hardware machined from high-temp superalloys with 100% material traceability and non-destructive testing.",
     capabilities: [
@@ -59,7 +49,7 @@ const industrySectors = [
     id: "data-centers",
     code: "SEC-04",
     title: "Data Centers",
-    img: dataImg,
+    img: "/industries/Data_Center_Icon.png",
     spec: "HIGH-DENSITY THERMAL SUPPORT",
     description: "Modular structural containment and rack gridwork designed to support high-density compute clusters and fluid cooling systems.",
     capabilities: [
@@ -73,7 +63,7 @@ const industrySectors = [
     id: "construction",
     code: "SEC-05",
     title: "Construction",
-    img: constructionImg,
+    img: "/industries/Construction_Icon.png",
     spec: "AWS D1.1 CERTIFIED WELDING",
     description: "Heavy-plate steel weldments and precision-machined pivot pins built for high shock loads and severe outdoor wear.",
     capabilities: [
@@ -87,7 +77,7 @@ const industrySectors = [
     id: "medical",
     code: "SEC-06",
     title: "Medical",
-    img: medicalImg,
+    img: "/industries/Medical_Icon.png",
     spec: "CLEANROOM ISO CLASS 7 READY",
     description: "Ultra-precision diagnostic housings and surgical components machined with micron-level surface finishes for sterile operations.",
     capabilities: [
@@ -101,7 +91,7 @@ const industrySectors = [
     id: "technology",
     code: "SEC-07",
     title: "Technology",
-    img: techImg,
+    img: "/industries/Technology_Icon.png",
     spec: "MICRON-LEVEL TOLERANCES",
     description: "Advanced hardware manufacturing for high-vacuum chambers, sub-thousandth alignment fixtures, and rapid prototype testing.",
     capabilities: [
@@ -115,7 +105,7 @@ const industrySectors = [
     id: "automotive",
     code: "SEC-08",
     title: "Automotive",
-    img: autoImg,
+    img: "/industries/Automotive_Icon.png",
     spec: "CONTINUOUS UPTIME TOOLING",
     description: "Heavy-duty assembly fixtures and automated welding cells built for continuous, zero-downtime operation on high-volume production lines.",
     capabilities: [
@@ -169,7 +159,7 @@ const industrySectors = [
               <div class="corner-cross top-right">+</div>
               <div class="corner-cross bottom-left">+</div>
               <div class="corner-cross bottom-right">+</div>
-              <Image src={sector.img} alt={sector.title} width={800} />
+              <img src={sector.img} alt={sector.title} width="800" height="800" />
             </div>
 
             <div class="detail-frame">
