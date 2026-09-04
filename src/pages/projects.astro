@@ -16,7 +16,7 @@ const projects = [
     category: "automation",
     categoryLabel: "AUTOMATION & CONTROLS",
     title: "Automated Material Handling System",
-    client: "Food & Beverage Processing",
+    client: "FOOD",
     timeline: "14 Weeks",
     material: "316 Stainless Steel",
     description: "Turnkey multi-axis automated conveyor integration built for harsh washdown environments. Features custom pneumatic sorting units and PLC automation control cells.",
@@ -25,10 +25,10 @@ const projects = [
   {
     id: "titanium-components",
     code: "PRJ-02",
-    category: "machining",
-    categoryLabel: "PRECISION MACHINING",
+    category: "manufacturing",
+    categoryLabel: "PRECISION MANUFACTURING",
     title: "Titanium Aerospace Flight Mounts",
-    client: "Defense & Aerospace",
+    client: "DEFENSE",
     timeline: "8 Weeks",
     material: "Ti-6Al-4V Titanium",
     description: "Micron-level tolerance multi-axis CNC milling for high-stress structural airframe hardware. 100% CMM verified with full heat-treat material certification.",
@@ -37,10 +37,10 @@ const projects = [
   {
     id: "robotic-welding-cell",
     code: "PRJ-03",
-    category: "welding",
-    categoryLabel: "FABRICATION & WELDING",
+    category: "manufacturing",
+    categoryLabel: "PRECISION MANUFACTURING",
     title: "Robotic Welding Assembly Cell",
-    client: "Automotive & Heavy Fleet",
+    client: "AUTOMOTIVE",
     timeline: "12 Weeks",
     material: "Structural Steel / Aluminum",
     description: "AWS D1.1 certified heavy structural welding frame for automated automotive body-in-white (BIW) sub-assemblies with integrated safety interlocks.",
@@ -49,10 +49,10 @@ const projects = [
   {
     id: "cleanroom-chassis",
     code: "PRJ-04",
-    category: "integration",
-    categoryLabel: "SYSTEMS INTEGRATION",
+    category: "assembly",
+    categoryLabel: "ASSEMBLY & INTEGRATION",
     title: "Semiconductor Vacuum Enclosure",
-    client: "High-Tech & Semiconductor",
+    client: "TECHNOLOGY",
     timeline: "10 Weeks",
     material: "Electropolished Stainless",
     description: "Ultra-high vacuum chamber assembly machined and electropolished for ISO Class 7 cleanroom medical and semiconductor diagnostic hardware.",
@@ -61,10 +61,10 @@ const projects = [
   {
     id: "server-racking-grid",
     code: "PRJ-05",
-    category: "welding",
-    categoryLabel: "FABRICATION & WELDING",
+    category: "manufacturing",
+    categoryLabel: "PRECISION MANUFACTURING",
     title: "Data Center Structural Racking Grid",
-    client: "Data Infrastructure",
+    client: "DATA CENTERS",
     timeline: "6 Weeks",
     material: "Heavy-Gauge Steel",
     description: "High-density modular server frame containment grid custom-engineered for seismic resistance and overhead fluid cooling line deployment.",
@@ -76,7 +76,7 @@ const projects = [
     category: "automation",
     categoryLabel: "AUTOMATION & CONTROLS",
     title: "Custom End-of-Arm Tooling (EOAT)",
-    client: "Robotics & Industrial Automation",
+    client: "ROBOTICS",
     timeline: "4 Weeks",
     material: "Anodized 6061 Aluminum",
     description: "High-speed lightweight pneumatic EOAT end-effectors designed for high-cycle pick-and-place automation with integrated optical sensor arrays.",
@@ -118,21 +118,29 @@ const projects = [
           <span class="chip-code">ALL</span>
           <span>ALL BUILDS</span>
         </button>
+        <button class="tactical-chip" data-filter="engineering">
+          <span class="chip-code">ENG</span>
+          <span>ENGINEERING & DESIGN</span>
+        </button>
+        <button class="tactical-chip" data-filter="manufacturing">
+          <span class="chip-code">MFG</span>
+          <span>PRECISION MANUFACTURING</span>
+        </button>
         <button class="tactical-chip" data-filter="automation">
-          <span class="chip-code">SYS</span>
-          <span>AUTOMATION</span>
+          <span class="chip-code">AUT</span>
+          <span>AUTOMATION & CONTROLS</span>
         </button>
-        <button class="tactical-chip" data-filter="machining">
-          <span class="chip-code">CNC</span>
-          <span>MACHINING</span>
+        <button class="tactical-chip" data-filter="assembly">
+          <span class="chip-code">ASM</span>
+          <span>ASSEMBLY & INTEGRATION</span>
         </button>
-        <button class="tactical-chip" data-filter="welding">
-          <span class="chip-code">WLD</span>
-          <span>FABRICATION</span>
+        <button class="tactical-chip" data-filter="specialized">
+          <span class="chip-code">SPC</span>
+          <span>SPECIALIZED SERVICES</span>
         </button>
-        <button class="tactical-chip" data-filter="integration">
-          <span class="chip-code">INT</span>
-          <span>INTEGRATION</span>
+        <button class="tactical-chip" data-filter="machine">
+          <span class="chip-code">MAC</span>
+          <span>MACHINE SERVICES</span>
         </button>
       </div>
     </div>
