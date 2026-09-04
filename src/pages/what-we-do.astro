@@ -1,0 +1,574 @@
+---
+// src/pages/what-we-do.astro
+import Layout from '../layouts/Layout.astro';
+
+const serviceGroups = [
+  {
+    id: "engineering",
+    code: "CAP-01",
+    title: "Engineering & Design",
+    tagline: "Mechanical Conceptualization",
+    description: "Translating complex performance requirements into production-ready 3D CAD models, custom machine designs, and functional prototypes.",
+    capabilities: [
+      "Mechanical Design (3D CAD)",
+      "Custom Machine Design",
+      "Design for Manufacturability",
+      "Prototyping & 3D Printing"
+    ],
+    image: "https://placehold.co/800x600/050505/ffffff?text=Engineering+%26+Design"
+  },
+  {
+    id: "manufacturing",
+    code: "CAP-02",
+    title: "Precision Manufacturing",
+    tagline: "High-Tolerance Component Fabrication",
+    description: "Advanced CNC milling, turning, and wire EDM paired with expert sheet metal fabrication and certified welding for robust component creation.",
+    capabilities: [
+      "CNC Milling & Turning",
+      "EDM Wire Cutting",
+      "MIG & TIG Welding",
+      "Sheet Metal Fabrication"
+    ],
+    image: "https://placehold.co/800x600/050505/ffffff?text=Precision+Manufacturing"
+  },
+  {
+    id: "automation",
+    code: "CAP-03",
+    title: "Automation & Controls",
+    tagline: "Industrial Robotics & UL Panels",
+    description: "Designing custom control panels, programming PLCs, and integrating robotic systems to optimize cycle times and industrial automation workflows.",
+    capabilities: [
+      "Control Panel Design & UL 508A Panels",
+      "PLC & Controls Programming",
+      "Robotic Integration",
+      "Industrial Automation"
+    ],
+    image: "https://placehold.co/800x600/050505/ffffff?text=Automation+%26+Controls"
+  },
+  {
+    id: "assembly",
+    code: "CAP-04",
+    title: "Assembly & Integration",
+    tagline: "Turnkey Machine Building",
+    description: "Comprehensive mechanical and electrical assembly, complete machine wiring, and full turnkey system integration from our floor to yours.",
+    capabilities: [
+      "Mechanical & Electrical Assembly",
+      "Machine Wiring",
+      "Turnkey System Integration",
+      "Packaging & Shipping"
+    ],
+    image: "https://placehold.co/800x600/050505/ffffff?text=Assembly+%26+Integration"
+  },
+  {
+    id: "specialized",
+    code: "CAP-05",
+    title: "Specialized Services",
+    tagline: "Tooling, Fixtures & Compliance",
+    description: "Providing expert tool and die making, custom fixture engineering, laser marking, and ITAR-registered compliance for specialized defense or aerospace needs.",
+    capabilities: [
+      "Tool & Die Making",
+      "Fixture Design & Manufacturing",
+      "Laser Marking & Engraving",
+      "ITAR Registered"
+    ],
+    image: "https://placehold.co/800x600/050505/ffffff?text=Specialized+Services"
+  },
+  {
+    id: "machine-services",
+    code: "CAP-06",
+    title: "Machine Services",
+    tagline: "Retrofits, Rebuilds & Fluid Power",
+    description: "Extending equipment lifecycles through comprehensive machine rebuilds, modern retrofits, and custom pneumatic and hydraulic system design.",
+    capabilities: [
+      "Machine Retrofits",
+      "Pneumatic System Design",
+      "Hydraulic System Design",
+      "Machine Rebuilds"
+    ],
+    image: "https://placehold.co/800x600/050505/ffffff?text=Machine+Services"
+  }
+];
+---
+
+<Layout title="What We Do | Custom Solutions Manufacturing">
+  <!-- Dark Hero Header -->
+  <section class="hero-section">
+    <div class="container">
+      <span class="sys-tag">[ CORE CAPABILITIES ]</span>
+      <h1>ENGINEERED FOR<br/><span class="text-blue">EXTREME PERFORMANCE</span></h1>
+      <p class="hero-desc">
+        End-to-end custom manufacturing, spanning 6 specialized capability groups built to handle single prototypes up to high-volume turnkey systems.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sticky Tactical Navigation Bar -->
+  <nav class="tactical-nav">
+    <div class="container nav-flex">
+      <span class="nav-label">// SELECT GROUP:</span>
+      <div class="nav-scroll">
+        {serviceGroups.map((group) => (
+          <a href={`#${group.id}`} class="tactical-chip">
+            <span class="chip-code">{group.code}</span>
+            <span>{group.title.split(" ")[0]}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </nav>
+
+  <!-- Alternating Sticky Curtain Sections -->
+  <div class="showcase-wrapper">
+    {serviceGroups.map((group, index) => (
+      <section id={group.id} class={`capability-row ${index % 2 === 0 ? 'bg-white' : 'bg-slate'}`}>
+        <div class={`container split-grid ${index % 2 !== 0 ? 'reverse' : ''}`}>
+          
+          <!-- Text Content Side -->
+          <div class="content-col">
+            <div class="title-block">
+              <span class="code-badge">{group.code}</span>
+              <span class="spec-tag">{group.tagline}</span>
+            </div>
+            
+            <h2>{group.title}</h2>
+            <p class="description">{group.description}</p>
+            
+            <div class="specs-box">
+              <div class="specs-header">// CAPABILITIES</div>
+              <ul class="specs-list">
+                {group.capabilities.map((cap) => (
+                  <li><span class="bullet"></span>{cap}</li>
+                ))}
+              </ul>
+            </div>
+
+            <a href="/contact" class="tactical-btn">
+              <span>DISCUSS {group.title.split(" ")[0].toUpperCase()}</span>
+              <span class="btn-arrow">&rarr;</span>
+            </a>
+          </div>
+
+          <!-- Image Side with Industrial Frame -->
+          <div class="image-col">
+            <div class="visual-frame">
+              <div class="corner-cross top-left">+</div>
+              <div class="corner-cross top-right">+</div>
+              <div class="corner-cross bottom-left">+</div>
+              <div class="corner-cross bottom-right">+</div>
+              <img src={group.image} alt={group.title} loading="lazy" />
+            </div>
+          </div>
+
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <!-- Dark Bottom Callout Banner -->
+  <section class="bottom-callout">
+    <div class="container">
+      <div class="callout-box">
+        <span class="sys-tag">// READY TO BUILD?</span>
+        <h2>HAVE A COMPLEX CAPABILITY REQUIREMENT?</h2>
+        <p>Whether you need a single precision prototype or a fully automated turn-key production cell, our engineering team is ready to assist.</p>
+        <a href="/contact" class="btn-primary">START A CONVERSATION</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Dark Hero Header */
+  .hero-section {
+    background-color: var(--brand-black);
+    color: #ffffff;
+    padding: 10rem 2rem 4rem 2rem;
+    position: relative;
+    border-bottom: 2px solid var(--brand-blue);
+  }
+
+  .sys-tag {
+    font-family: var(--font-saira);
+    color: var(--brand-blue);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .hero-section h1 {
+    font-family: var(--font-saira);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -0.5px;
+  }
+
+  .text-blue {
+    color: var(--brand-blue);
+  }
+
+  .hero-desc {
+    color: var(--brand-gray);
+    font-size: 1.2rem;
+    max-width: 680px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Sticky Navigation Bar */
+  .tactical-nav {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    z-index: 1000; /* Ensure this stays above the sliding curtains */
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-flex {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav-label {
+    font-family: var(--font-saira);
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: var(--brand-black);
+    white-space: nowrap;
+    letter-spacing: 1px;
+  }
+
+  .nav-scroll {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .tactical-chip {
+    font-family: var(--font-saira);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--brand-black);
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    padding: 0.4rem 0.85rem;
+    border-radius: 2px;
+    text-decoration: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+  }
+
+  .chip-code {
+    font-family: var(--font-saira);
+    color: var(--brand-blue);
+    font-size: 0.75rem;
+  }
+
+  .tactical-chip:hover {
+    border-color: var(--brand-blue);
+    background-color: var(--brand-blue);
+    color: #ffffff;
+  }
+
+  .tactical-chip:hover .chip-code {
+    color: #ffffff;
+  }
+
+  /* Container & Showcase Wrapper */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .showcase-wrapper {
+    position: relative;
+  }
+
+  .capability-row {
+    padding: 6rem 2rem;
+    overflow: hidden;
+  }
+
+  .bg-white {
+    background-color: #ffffff;
+  }
+
+  .bg-slate {
+    background-color: #f8fafc;
+  }
+
+  /* 
+    The Curtain Effect (Desktop Only)
+    Pins the sections to the top and adds drop shadows so they slide over each other 
+  */
+  @media (min-width: 992px) {
+    .capability-row {
+      position: sticky;
+      top: 55px; /* Offset to sit just below the sticky tactical nav */
+      height: calc(100vh - 55px);
+      display: flex;
+      align-items: center;
+      box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.05); /* Creates the overlapping physical depth */
+      padding: 0 2rem;
+    }
+  }
+
+  /* Split Layout Grid */
+  .split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  /* Reverses the order of columns for alternating rows */
+  .split-grid.reverse .content-col {
+    order: 2;
+  }
+
+  .split-grid.reverse .image-col {
+    order: 1;
+  }
+
+  /* Text Content Column */
+  .title-block {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .code-badge {
+    font-family: var(--font-saira);
+    font-size: 0.85rem;
+    color: #ffffff;
+    background-color: var(--brand-black);
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+
+  .spec-tag {
+    font-family: var(--font-saira);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .content-col h2 {
+    font-family: var(--font-saira);
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--brand-black);
+    text-transform: uppercase;
+    margin: 0 0 1.25rem 0;
+    line-height: 1.1;
+  }
+
+  .description {
+    color: var(--brand-gray);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0 0 2rem 0;
+  }
+
+  /* Capabilities Box */
+  .specs-box {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid var(--brand-blue);
+    padding: 1.5rem;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  }
+
+  .specs-header {
+    font-family: var(--font-saira);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .specs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .specs-list li {
+    font-size: 0.95rem;
+    color: #334155;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-weight: 500;
+  }
+
+  .bullet {
+    width: 6px;
+    height: 6px;
+    background-color: var(--brand-blue);
+    border-radius: 50%;
+    margin-top: 0.4rem;
+    flex-shrink: 0;
+  }
+
+  /* Image Column with Tech Frame */
+  .visual-frame {
+    position: relative;
+    background-color: var(--brand-black);
+    padding: 0.5rem;
+    border-radius: 2px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .visual-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+  }
+
+  .visual-frame:hover img {
+    opacity: 1;
+  }
+
+  .corner-cross {
+    position: absolute;
+    font-family: var(--font-saira);
+    font-size: 0.85rem;
+    color: var(--brand-blue);
+    font-weight: bold;
+    z-index: 2;
+  }
+
+  .top-left { top: -10px; left: -10px; }
+  .top-right { top: -10px; right: -10px; }
+  .bottom-left { bottom: -10px; left: -10px; }
+  .bottom-right { bottom: -10px; right: -10px; }
+
+  /* Tactical Button */
+  .tactical-btn {
+    font-family: var(--font-saira);
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--brand-blue);
+    color: #ffffff;
+    padding: 0.9rem 1.75rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    transition: opacity 0.2s ease;
+  }
+
+  .tactical-btn:hover {
+    opacity: 0.85;
+  }
+
+  /* Bottom Dark Callout Banner */
+  .bottom-callout {
+    position: relative;
+    z-index: 100; /* Stacks over the final capability row */
+    background-color: var(--brand-black);
+    padding: 6rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .callout-box {
+    background-color: var(--brand-black);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 4px solid var(--brand-blue);
+    padding: 3.5rem 2.5rem;
+    text-align: center;
+  }
+
+  .callout-box h2 {
+    font-family: var(--font-saira);
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0.5rem 0 1rem 0;
+  }
+
+  .callout-box p {
+    color: var(--brand-gray);
+    font-size: 1.1rem;
+    max-width: 680px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.6;
+  }
+
+  .btn-primary {
+    font-family: var(--font-saira);
+    display: inline-block;
+    background-color: var(--brand-blue);
+    color: #ffffff;
+    padding: 0.9rem 2.25rem;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    transition: opacity 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.85;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .split-grid, .split-grid.reverse {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    
+    .split-grid.reverse .content-col {
+      order: 1;
+    }
+    
+    .split-grid.reverse .image-col {
+      order: 2;
+    }
+
+    .nav-label {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .specs-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

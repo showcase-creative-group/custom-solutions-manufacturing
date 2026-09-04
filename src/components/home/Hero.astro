@@ -1,0 +1,65 @@
+---
+// src/components/home/Hero.astro
+---
+
+<section class="hero-section">
+  <div class="hero-container">
+    <h1>Turn-Key, Specialized<br>Manufacturing</h1>
+    <p>Discover precision machining and custom welding to serve your needs.</p>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    background-color: var(--brand-black); 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('https://placehold.co/1920x1080/333/555?text=Hero+Image+Placeholder');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    
+    /* Full viewport height to match the edge-to-edge industrial scale */
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    
+    display: flex;
+    align-items: center;
+    
+    /* Top padding accounts for the fixed overlay navbar */
+    padding: 120px 2rem 5rem 2rem;
+  }
+
+  .hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  h1 {
+    font-family: var(--font-saira);
+    font-size: clamp(2.5rem, 5vw, 4.5rem); 
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+  }
+
+  p {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    max-width: 600px;
+    color: var(--brand-gray);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      padding-top: 100px;
+      min-height: 80vh;
+    }
+  }
+</style>

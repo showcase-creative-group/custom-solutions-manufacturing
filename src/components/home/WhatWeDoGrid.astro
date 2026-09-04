@@ -1,0 +1,213 @@
+---
+// src/components/home/WhatWeDoGrid.astro
+
+const categories = [
+  { 
+    title: "Engineering & Design", 
+    subpoints: [
+      "Mechanical Design (3D CAD)",
+      "Custom Machine Design",
+      "Design for Manufacturability",
+      "Prototyping & 3D Printing"
+    ], 
+    link: "/what-we-do#engineering",
+    image: "https://images.unsplash.com/photo-1581094017399-34c4fb48c65b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  { 
+    title: "Precision Manufacturing", 
+    subpoints: [
+      "CNC Milling & Turning",
+      "EDM Wire Cutting",
+      "MIG & TIG Welding",
+      "Sheet Metal Fabrication"
+    ], 
+    link: "/what-we-do#manufacturing",
+    image: "https://images.unsplash.com/photo-1740209475472-aa7d280f7452?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  { 
+    title: "Automation & Controls", 
+    subpoints: [
+      "Control Panel Design & UL 508A Panels",
+      "PLC & Controls Programming",
+      "Robotic Integration",
+      "Industrial Automation"
+    ], 
+    link: "/what-we-do#automation",
+    image: "https://plus.unsplash.com/premium_photo-1661962751752-cbf6a170c837?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW5kdXN0cmlhbCUyMGNvbnRyb2wlMjBwYW5lbHxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  { 
+    title: "Assembly & Integration", 
+    subpoints: [
+      "Mechanical & Electrical Assembly",
+      "Machine Wiring",
+      "Turnkey System Integration",
+      "Packaging & Shipping"
+    ], 
+    link: "/what-we-do#assembly",
+    image: "https://plus.unsplash.com/premium_photo-1682145728214-dbd62535af3f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFjaGluZSUyMHdpcmluZ3xlbnwwfHwwfHx8MA%3D%3D"
+  },
+  { 
+    title: "Specialized Services", 
+    subpoints: [
+      "Tool & Die Making",
+      "Fixture Design & Manufacturing",
+      "Laser Marking & Engraving",
+      "ITAR Registered"
+    ], 
+    link: "/what-we-do#specialized",
+    image: "https://plus.unsplash.com/premium_photo-1682141721960-fcecf4022b5b?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  { 
+    title: "Machine Services", 
+    subpoints: [
+      "Machine Retrofits",
+      "Pneumatic System Design",
+      "Hydraulic System Design",
+      "Machine Rebuilds"
+    ], 
+    link: "/what-we-do#machine",
+    image: "https://plus.unsplash.com/premium_photo-1682144554614-bce1c2311b72?q=80&w=1122&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  }
+];
+---
+
+<section class="what-we-do">
+  <div class="container">
+    <div class="section-header">
+      <h2>What We Do</h2>
+      <p>Custom manufacturing solutions with a wide array of capabilities in specialized machinery and heavy manufacturing.</p>
+    </div>
+
+    <div class="grid">
+      {categories.map((item) => (
+        <a href={item.link} class="card">
+          {/* Dynamically assign the image source here */}
+          <img src={item.image} alt={item.title} class="bg-image" />
+          
+          <div class="overlay">
+            <h3>{item.title}</h3>
+            
+            <ul class="subpoints-list">
+              {item.subpoints.map((point) => (
+                <li>{point}</li>
+              ))}
+            </ul>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .what-we-do {
+    padding: 6rem 2rem;
+    background-color: #f8fafc;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-header h2 {
+    font-size: 2.5rem;
+    color: var(--brand-black);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .section-header p {
+    font-size: 1.1rem;
+    color: var(--brand-gray);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .card {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1; 
+  }
+
+  .bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .card:hover .bg-image {
+    transform: scale(1.08);
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    color: #ffffff;
+    transition: background 0.3s ease;
+  }
+
+  .card:hover .overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0.4) 100%);
+  }
+
+  .overlay h3 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+    color: #ffffff; 
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+  }
+
+  .subpoints-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+  }
+
+  /* The sleek blue accent line replaces the arrow */
+  .subpoints-list li {
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--brand-blue);
+  }
+
+  .card:hover .overlay h3 {
+    transform: translateY(0);
+  }
+
+  .card:hover .subpoints-list {
+    opacity: 1;
+    max-height: 200px; 
+    margin-top: 1rem;
+  }
+</style>

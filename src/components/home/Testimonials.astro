@@ -1,0 +1,98 @@
+---
+// src/components/home/Testimonials.astro
+
+const logos = [
+  { name: "Company A", src: "https://placehold.co/200x100/ffffff/9b9b9b?text=LOGO+A" },
+  { name: "Company B", src: "https://placehold.co/200x100/ffffff/9b9b9b?text=LOGO+B" },
+  { name: "Company C", src: "https://placehold.co/200x100/ffffff/9b9b9b?text=LOGO+C" },
+  { name: "Company D", src: "https://placehold.co/200x100/ffffff/9b9b9b?text=LOGO+D" },
+  { name: "Company E", src: "https://placehold.co/200x100/ffffff/9b9b9b?text=LOGO+E" },
+  { name: "Company F", src: "https://placehold.co/200x100/ffffff/9b9b9b?text=LOGO+F" }
+];
+
+const duplicatedLogos = [...logos, ...logos];
+---
+
+<section class="logo-carousel">
+  <div class="container">
+    <h2>Trusted by Industry Leaders</h2>
+    
+    <div class="carousel-wrapper">
+      <div class="carousel-track">
+        {duplicatedLogos.map((logo) => (
+          <div class="logo-slide">
+            <img src={logo.src} alt={`${logo.name} logo`} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .logo-carousel {
+    padding: 5rem 0;
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--brand-black);
+    margin-top: 0;
+    margin-bottom: 3.5rem;
+    text-transform: uppercase;
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    animation: scroll 25s linear infinite;
+  }
+
+  .carousel-wrapper:hover .carousel-track {
+    animation-play-state: paused;
+  }
+
+  .logo-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+  }
+
+  .logo-slide img {
+    max-width: 100%;
+    height: auto;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+  }
+
+  .logo-slide img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - 2rem));
+    }
+  }
+</style>

@@ -1,0 +1,131 @@
+---
+// src/components/home/BigStats.astro
+
+const stats = [
+  { value: 35, suffix: "+", label: "Years of Excellence" },
+  { value: 50, suffix: "k", label: "Sq. Ft. Facility" },
+  { value: 10, suffix: "k+", label: "Parts Manufactured" },
+  { value: 100, suffix: "%", label: "American Made" }
+];
+---
+
+<section class="big-stats">
+  <div class="container">
+    <div class="stats-grid">
+      {stats.map((stat) => (
+        <div class="stat-item">
+          <div class="stat-value">
+            <span class="counter" data-target={stat.value}>0</span>
+            <span class="suffix">{stat.suffix}</span>
+          </div>
+          <span class="stat-label">{stat.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .big-stats {
+    background-color: #ffffff; 
+    padding: 5rem 2rem;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stat-value {
+    font-family: var(--font-saira);
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--brand-black);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: baseline;
+  }
+
+  /* Added brand blue to the suffix for a premium accent */
+  .suffix {
+    color: var(--brand-blue);
+  }
+
+  .stat-label {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--brand-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 3rem 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr; 
+    }
+  }
+</style>
+
+<script>
+  const counters = document.querySelectorAll('.counter');
+  const duration = 2000; 
+
+  const animateCounters = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target as HTMLElement;
+        const target = parseInt(counter.getAttribute('data-target') || '0');
+        const startTime = performance.now();
+
+        const updateCounter = (currentTime: number) => {
+          const elapsedTime = currentTime - startTime;
+          const progress = Math.min(elapsedTime / duration, 1);
+          
+          const easeOutProgress = 1 - Math.pow(1 - progress, 3);
+          const currentCount = Math.ceil(easeOutProgress * target);
+          
+          counter.innerText = currentCount.toString();
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.innerText = target.toString(); 
+          }
+        };
+
+        requestAnimationFrame(updateCounter);
+        observer.unobserve(counter);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(animateCounters, {
+    threshold: 0.5 
+  });
+
+  counters.forEach(counter => observer.observe(counter));
+</script>

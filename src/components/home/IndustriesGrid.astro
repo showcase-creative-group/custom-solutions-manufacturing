@@ -1,0 +1,188 @@
+---
+// src/components/home/IndustriesGrid.astro
+import { Image } from 'astro:assets';
+
+// Import images from your specific folder structure
+import foodImg from '../../assets/industries/Food_Icon.png';
+import roboticsImg from '../../assets/industries/Robotics_Icon.png';
+import defenseImg from '../../assets/industries/Defense_Icon.png';
+import dataImg from '../../assets/industries/Data_Center_Icon.png';
+import constructionImg from '../../assets/industries/Construction_Icon.png';
+import medicalImg from '../../assets/industries/Medical_Icon.png';
+import techImg from '../../assets/industries/Technology_Icon.png';
+import autoImg from '../../assets/industries/Automotive_Icon.png';
+
+const industries = [
+  { 
+    title: "FOOD", 
+    desc: "Custom-grade stainless steel fabrication and sanitary automation systems for food processing.", 
+    img: foodImg 
+  },
+  { 
+    title: "ROBOTICS", 
+    desc: "Precision components and structural frames built to exact tolerances for automated systems.", 
+    img: roboticsImg 
+  },
+  { 
+    title: "DEFENSE", 
+    desc: "ITAR-compliant manufacturing delivering ruggedized parts for mission-critical defense applications.", 
+    img: defenseImg 
+  },
+  { 
+    title: "DATA CENTERS", 
+    desc: "Heavy-duty racking, cooling enclosures, and structural supports for enterprise server farms.", 
+    img: dataImg 
+  },
+  { 
+    title: "CONSTRUCTION", 
+    desc: "Heavy-duty structural components and custom fabrication for large-scale construction projects.", 
+    img: constructionImg 
+  },
+  { 
+    title: "MEDICAL", 
+    desc: "Cleanroom-compatible manufacturing of precision medical devices and surgical equipment housing.", 
+    img: medicalImg 
+  },
+  { 
+    title: "TECHNOLOGY", 
+    desc: "Specialized machining and prototyping for rapid advancement in high-tech sectors.", 
+    img: techImg 
+  },
+  { 
+    title: "AUTOMOTIVE", 
+    desc: "Scalable production of specialized automotive fixtures, tooling, and assembly line components.", 
+    img: autoImg 
+  }
+];
+---
+
+<section class="industries-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Industries</h2>
+    </div>
+
+    <div class="grid">
+      {industries.map((industry) => (
+        <div class="industry-card">
+          <h3>{industry.title}</h3>
+          <div class="image-wrapper">
+            <Image 
+              src={industry.img} 
+              alt={`${industry.title} manufacturing capabilities`} 
+              width={800} 
+            />
+          </div>
+          <div class="card-content">
+            <p>{industry.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .industries-section {
+    background-color: var(--brand-black); 
+    color: #ffffff;
+    padding: 6rem 2rem;
+    border-top: 1px solid #1f2937;
+    border-bottom: 1px solid #1f2937;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-header h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .section-header p {
+    font-size: 1.1rem;
+    color: var(--brand-gray);
+    margin: 0;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .industry-card {
+    background-color: #0f1115;
+    border: 1px solid #334155;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+
+  .industry-card:hover {
+    border-color: var(--brand-blue);
+  }
+
+  .industry-card h3 {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin: 0;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    color: #e2e8f0;
+    border-bottom: 1px solid #334155;
+  }
+
+  .image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0a0a0a;
+    border-bottom: 1px solid #334155;
+    overflow: hidden;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scale(1.2); /* Scales the icon up to reduce empty padding */
+  }
+
+  .card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .card-content p {
+    font-size: 0.95rem;
+    color: var(--brand-gray);
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
+  }
+
+  @media (max-width: 992px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
