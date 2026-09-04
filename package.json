@@ -9,11 +9,14 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate-types": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^14.3.0",
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.2.10"
+    "astro": "^7.2.10",
+    "wrangler": "^4.129.0"
   },
   "allowScripts": {
     "esbuild": true
