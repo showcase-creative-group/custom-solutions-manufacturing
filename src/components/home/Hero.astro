@@ -8,7 +8,7 @@
     <source src="https://pub-6b61e64b6d9145a3b0f5e845de93fbb9.r2.dev/Home/csm_hero_manufacturing_portfolio_for_web.mp4" type="video/mp4" />
   </video>
   
-  <!-- Gradient Overlay -->
+  <!-- Lighter Gradient Overlay -->
   <div class="hero-overlay"></div>
 
   <div class="hero-container">
@@ -49,14 +49,15 @@
     z-index: 1;
   }
 
-  /* Replaces the background-image linear gradient */
+  /* Refactored overlay: Lighter gradient (40% to 60% black) */
   .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85));
+    /* Changed from 0.75/0.85 to 0.4/0.6 */
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
     z-index: 2;
   }
 
@@ -67,6 +68,8 @@
     /* Keep text above the video and overlay */
     position: relative;
     z-index: 3;
+    /* Optional: Add a subtle text shadow to ensure legibility over lighter video sections */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   }
 
   h1 {
