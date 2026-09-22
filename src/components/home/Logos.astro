@@ -65,9 +65,9 @@ const duplicatedLogos = [...logos, ...logos];
 
   .carousel-track {
     display: flex;
-    gap: 4rem;
+    gap: 3rem;
     width: max-content;
-    animation: scroll 25s linear infinite;
+    animation: scroll 40s linear infinite;
   }
 
   .carousel-wrapper:hover .carousel-track {
@@ -78,7 +78,7 @@ const duplicatedLogos = [...logos, ...logos];
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
+    width: 140px;
   }
 
   .logo-slide img {
@@ -99,7 +99,7 @@ const duplicatedLogos = [...logos, ...logos];
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-50% - 2rem));
+      transform: translateX(calc(-50% - 1.5rem));
     }
   }
 </style>
