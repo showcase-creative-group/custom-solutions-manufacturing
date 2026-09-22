@@ -1,5 +1,6 @@
 ---
-// src/components/global/Navbar.astro
+import { Image } from 'astro:assets';
+import Logo from '../../assets/custom_solutions_manufacturing_logo.png'; 
 
 const pathname = Astro.url.pathname;
 const isHome = pathname === '/' || pathname === '/index.html';
@@ -11,7 +12,9 @@ const isActive = (path) => {
 <header id="main-header" class={isHome ? "is-home top-of-page" : ""}>
   <nav>
     <div class="logo">
-      <a href="/">CSM Logo</a>
+      <a href="/">
+        <Image src={Logo} alt="CSM Logo" />
+      </a>
     </div>
     
     <div class="nav-actions">
@@ -60,18 +63,19 @@ const isActive = (path) => {
   }
 
   .logo a {
-    font-family: var(--font-saira);
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--brand-black);
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
   }
 
-  header.is-home.top-of-page .logo a {
-    color: #ffffff;
+  .logo img {
+    height: 40px;
+    width: auto;
+    transition: filter 0.3s ease;
+  }
+
+  header.is-home.top-of-page .logo img {
+    filter: brightness(0) invert(1);
   }
 
   .nav-actions {
