@@ -3,6 +3,14 @@
 ---
 
 <section class="hero-section">
+  <!-- Cloudflare R2 Video Background -->
+  <video class="hero-video" autoplay loop muted playsinline>
+    <source src="https://pub-6b61e64b6d9145a3b0f5e845de93fbb9.r2.dev/Home/csm_hero_manufacturing_portfolio_for_web.mp4" type="video/mp4" />
+  </video>
+  
+  <!-- Gradient Overlay -->
+  <div class="hero-overlay"></div>
+
   <div class="hero-container">
     <h1>Turn-Key, Specialized<br>Manufacturing</h1>
     <p>Discover precision machining and custom welding to serve your needs.</p>
@@ -12,10 +20,6 @@
 <style>
   .hero-section {
     background-color: var(--brand-black); 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('https://placehold.co/1920x1080/333/555?text=Hero+Image+Placeholder');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     color: #ffffff;
     
     /* Full viewport height to match the edge-to-edge industrial scale */
@@ -28,12 +32,41 @@
     
     /* Top padding accounts for the fixed overlay navbar */
     padding: 120px 2rem 5rem 2rem;
+    
+    /* Required to contain the absolutely positioned video */
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Video styling to act like a cover background */
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  /* Replaces the background-image linear gradient */
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85));
+    z-index: 2;
   }
 
   .hero-container {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    /* Keep text above the video and overlay */
+    position: relative;
+    z-index: 3;
   }
 
   h1 {
