@@ -33,8 +33,9 @@ const stats = [
     border-bottom: 1px solid #e2e8f0;
   }
 
+  /* Expanded from 1200px to 1600px for consistency */
   .container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
   }
 
@@ -52,9 +53,10 @@ const stats = [
     justify-content: center;
   }
 
+  /* Scaled up and made responsive to fill the wider container */
   .stat-value {
     font-family: var(--font-saira);
-    font-size: 3.5rem;
+    font-size: clamp(3rem, 6vw, 4.5rem);
     font-weight: 800;
     color: var(--brand-black);
     line-height: 1;
@@ -63,7 +65,6 @@ const stats = [
     align-items: baseline;
   }
 
-  /* Added brand blue to the suffix for a premium accent */
   .suffix {
     color: var(--brand-blue);
   }

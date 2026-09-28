@@ -33,7 +33,7 @@ const categories = [
       "Industrial Automation"
     ], 
     link: "/what-we-do#automation",
-    image: "https://plus.unsplash.com/premium_photo-1661962751752-cbf6a170c837?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW5kdXN0cmlhbCUyMGNvbnRyb2wlMjBwYW5lbHxlbnwwfHwwfHx8MA%3D%3D"
+    image: "https://plus.unsplash.com/premium_photo-1661962751752-cbf6a170c837?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFjaGluZSUyMHdpcmluZ3xlbnwwfHwwfHx8MA%3D%3D"
   },
   { 
     title: "Assembly & Integration", 
@@ -75,13 +75,11 @@ const categories = [
   <div class="container">
     <div class="section-header">
       <h2>What We Do</h2>
-      <p>Custom manufacturing solutions with a wide array of capabilities in specialized machinery and heavy manufacturing.</p>
     </div>
 
     <div class="grid">
       {categories.map((item) => (
         <a href={item.link} class="card">
-          {/* Dynamically assign the image source here */}
           <img src={item.image} alt={item.title} class="bg-image" />
           
           <div class="overlay">
@@ -106,32 +104,28 @@ const categories = [
   }
 
   .container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
   }
 
   .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem; 
   }
 
   .section-header h2 {
-    font-size: 2.5rem;
+    font-family: var(--font-saira);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
     color: var(--brand-black);
-    margin-bottom: 1rem;
+    margin: 0;
     text-transform: uppercase;
-  }
-
-  .section-header p {
-    font-size: 1.1rem;
-    color: var(--brand-gray);
-    max-width: 600px;
-    margin: 0 auto;
+    letter-spacing: 0.5px;
   }
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     gap: 2rem;
   }
 
@@ -151,7 +145,7 @@ const categories = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .card:hover .bg-image {
@@ -165,9 +159,9 @@ const categories = [
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 2rem;
+    padding: 2.5rem; /* Slightly increased padding to match the larger typography */
     color: #ffffff;
-    transition: background 0.3s ease;
+    transition: background 0.4s ease;
   }
 
   .card:hover .overlay {
@@ -175,11 +169,13 @@ const categories = [
   }
 
   .overlay h3 {
-    font-size: 1.5rem;
-    margin: 0 0 0.5rem 0;
+    font-family: var(--font-saira);
+    font-size: clamp(1.5rem, 2.5vw, 1.85rem); /* Scaled up and made responsive */
+    font-weight: 700;
+    margin: 0;
     color: #ffffff; 
-    transform: translateY(20px);
-    transition: transform 0.4s ease;
+    transform: translateY(15px);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .subpoints-list {
@@ -189,14 +185,15 @@ const categories = [
     opacity: 0;
     max-height: 0;
     overflow: hidden;
-    transition: all 0.4s ease;
-    color: #e2e8f0;
-    font-size: 0.95rem;
+    transform: translateY(10px); /* Smooth slide up with the opacity fade */
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #f8fafc;
+    font-size: 1.05rem; /* Increased base size for readability */
+    line-height: 1.5;
   }
 
-  /* The sleek blue accent line replaces the arrow */
   .subpoints-list li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
     padding-left: 1rem;
     border-left: 2px solid var(--brand-blue);
   }
@@ -207,7 +204,14 @@ const categories = [
 
   .card:hover .subpoints-list {
     opacity: 1;
-    max-height: 200px; 
-    margin-top: 1rem;
+    max-height: 250px; 
+    margin-top: 1.25rem;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

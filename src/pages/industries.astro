@@ -8,112 +8,56 @@ const industrySectors = [
     code: "SEC-01",
     title: "Food",
     img: "/industries/Food_Icon.png",
-    spec: "FDA / USDA SANITARY GRADE",
-    description: "High-throughput sanitary automation engineered for extreme chemical washdown environments and zero material degradation.",
-    capabilities: [
-      "304 / 316 Stainless Fabrication",
-      "Sanitary Conveyor Infrastructure",
-      "FDA/USDA Compliant Tooling",
-      "High-Speed Automated Packaging"
-    ]
+    spec: "FDA / USDA SANITARY GRADE"
   },
   {
     id: "robotics",
     code: "SEC-02",
     title: "Robotics",
     img: "/industries/Robotics_Icon.png",
-    spec: "HIGH-SPEED DYNAMIC TOLERANCE",
-    description: "Rigid, lightweight structural arm assemblies and end-effectors machined to ultra-tight mechanical tolerances for maximum cycle speeds.",
-    capabilities: [
-      "Custom End-of-Arm Tooling (EOAT)",
-      "Robot Pedestals & Base Plates",
-      "Precision Sensor Housings",
-      "Multi-Axis Machined Linkages"
-    ]
+    spec: "HIGH-SPEED DYNAMIC TOLERANCE"
   },
   {
     id: "defense",
     code: "SEC-03",
     title: "Defense",
     img: "/industries/Defense_Icon.png",
-    spec: "ITAR REGISTERED // CMMC COMPLIANT",
-    description: "Mission-critical hardware machined from high-temp superalloys with 100% material traceability and non-destructive testing.",
-    capabilities: [
-      "ITAR Certified Production",
-      "Titanium & Superalloy Machining",
-      "Ground Support Infrastructure",
-      "Precision Flight-Ready Weldments"
-    ]
+    spec: "ITAR REGISTERED // CMMC COMPLIANT"
   },
   {
     id: "data-centers",
     code: "SEC-04",
     title: "Data Centers",
     img: "/industries/Data_Center_Icon.png",
-    spec: "HIGH-DENSITY THERMAL SUPPORT",
-    description: "Modular structural containment and rack gridwork designed to support high-density compute clusters and fluid cooling systems.",
-    capabilities: [
-      "Hot / Cold Aisle Containment",
-      "Heavy-Duty Structural Racking",
-      "Overhead Busway Support Grids",
-      "Seismic Floor Mount Fixtures"
-    ]
+    spec: "HIGH-DENSITY THERMAL SUPPORT"
   },
   {
     id: "construction",
     code: "SEC-05",
     title: "Construction",
     img: "/industries/Construction_Icon.png",
-    spec: "AWS D1.1 CERTIFIED WELDING",
-    description: "Heavy-plate steel weldments and precision-machined pivot pins built for high shock loads and severe outdoor wear.",
-    capabilities: [
-      "Heavy Steel Plate Burning",
-      "High-Load Structural Brackets",
-      "Hardened Wear Components",
-      "Large-Scale Steel Fabrications"
-    ]
+    spec: "AWS D1.1 CERTIFIED WELDING"
   },
   {
     id: "medical",
     code: "SEC-06",
     title: "Medical",
     img: "/industries/Medical_Icon.png",
-    spec: "CLEANROOM ISO CLASS 7 READY",
-    description: "Ultra-precision diagnostic housings and surgical components machined with micron-level surface finishes for sterile operations.",
-    capabilities: [
-      "Precision CNC Milling & Wire EDM",
-      "Electropolished Stainless Components",
-      "Diagnostic Equipment Chassis",
-      "Sterile Environment Finishes"
-    ]
+    spec: "CLEANROOM ISO CLASS 7 READY"
   },
   {
     id: "technology",
     code: "SEC-07",
     title: "Technology",
     img: "/industries/Technology_Icon.png",
-    spec: "MICRON-LEVEL TOLERANCES",
-    description: "Advanced hardware manufacturing for high-vacuum chambers, sub-thousandth alignment fixtures, and rapid prototype testing.",
-    capabilities: [
-      "Sub-Thousandth Precision Machining",
-      "Vacuum Chamber Enclosures",
-      "Custom Hardware Burn-In Fixtures",
-      "Rapid Prototype Development"
-    ]
+    spec: "MICRON-LEVEL TOLERANCES"
   },
   {
     id: "automotive",
     code: "SEC-08",
     title: "Automotive",
     img: "/industries/Automotive_Icon.png",
-    spec: "CONTINUOUS UPTIME TOOLING",
-    description: "Heavy-duty assembly fixtures and automated welding cells built for continuous, zero-downtime operation on high-volume production lines.",
-    capabilities: [
-      "Body-In-White Welding Fixtures",
-      "Custom CMM Quality Gauges",
-      "Ergonomic Sub-Assembly Cells",
-      "Automated Line Transfer Units"
-    ]
+    spec: "CONTINUOUS UPTIME TOOLING"
   }
 ];
 ---
@@ -129,66 +73,37 @@ const industrySectors = [
     </div>
   </section>
 
-  <nav class="tactical-nav">
-    <div class="container nav-flex">
-      <span class="nav-label">// SELECT SECTOR:</span>
-      <div class="nav-scroll">
-        {industrySectors.map((sector) => (
-          <a href={`#${sector.id}`} class="tactical-chip">
-            <span class="chip-code">{sector.code}</span>
-            <span>{sector.title}</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </nav>
-
   <section class="showcase-section">
     <div class="container">
-      {industrySectors.map((sector) => (
-        <div id={sector.id} class="sector-block">
-          
-          <div class="block-top">
-            <span class="code-badge">{sector.code}</span>
-            <span class="spec-tag">{sector.spec}</span>
-          </div>
-
-          <div class="block-main">
+      <div class="sectors-grid">
+        {industrySectors.map((sector) => (
+          <div id={sector.id} class="sector-card">
+            
             <div class="visual-frame">
               <div class="corner-cross top-left">+</div>
               <div class="corner-cross top-right">+</div>
               <div class="corner-cross bottom-left">+</div>
               <div class="corner-cross bottom-right">+</div>
-              <img src={sector.img} alt={sector.title} width="800" height="800" />
+              <img src={sector.img} alt={sector.title} width="400" height="400" />
             </div>
 
             <div class="detail-frame">
+              <div class="card-meta">
+                <span class="code-badge">{sector.code}</span>
+                <span class="spec-tag">{sector.spec}</span>
+              </div>
+              
               <h2>{sector.title}</h2>
-              <p class="description">{sector.description}</p>
 
-              <div class="specs-box">
-                <div class="specs-header">// TECHNICAL CAPABILITIES</div>
-                <div class="specs-grid">
-                  {sector.capabilities.map((cap, idx) => (
-                    <div class="spec-item">
-                      <span class="spec-num">0{idx + 1}</span>
-                      <span class="spec-text">{cap}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div class="action-row">
-                <a href="/contact" class="tactical-btn">
-                  <span>INITIATE {sector.title.toUpperCase()} PROJECT</span>
-                  <span class="btn-arrow">&rarr;</span>
-                </a>
-              </div>
+              <a href="/contact" class="tactical-btn">
+                <span>INITIATE {sector.title.toUpperCase()} PROJECT</span>
+                <span class="btn-arrow">&rarr;</span>
+              </a>
             </div>
-          </div>
 
-        </div>
-      ))}
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -211,7 +126,7 @@ const industrySectors = [
     color: #ffffff;
     padding: 10rem 2rem 5rem 2rem;
     position: relative;
-    border-bottom: 2px solid var(--brand-blue);
+    /* Removed the border-bottom here */
   }
 
   .sys-tag {
@@ -246,73 +161,6 @@ const industrySectors = [
     margin: 0;
   }
 
-  /* Sticky Telemetry Bar */
-  .tactical-nav {
-    position: sticky;
-    top: 0;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-    z-index: 900;
-    padding: 0.75rem 1.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  }
-
-  .nav-flex {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .nav-label {
-    font-family: var(--font-saira);
-    font-weight: 700;
-    font-size: 0.75rem;
-    color: var(--brand-black);
-    white-space: nowrap;
-    letter-spacing: 1px;
-  }
-
-  .nav-scroll {
-    display: flex;
-    gap: 0.5rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .tactical-chip {
-    font-family: var(--font-saira);
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--brand-black);
-    background-color: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    padding: 0.4rem 0.85rem;
-    border-radius: 2px;
-    text-decoration: none;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.2s ease;
-  }
-
-  .chip-code {
-    font-family: var(--font-saira);
-    color: var(--brand-blue);
-    font-size: 0.75rem;
-  }
-
-  .tactical-chip:hover {
-    border-color: var(--brand-blue);
-    background-color: var(--brand-blue);
-    color: #ffffff;
-  }
-
-  .tactical-chip:hover .chip-code {
-    color: #ffffff;
-  }
-
   /* Main Light Showcase */
   .showcase-section {
     background-color: #f8fafc;
@@ -324,65 +172,40 @@ const industrySectors = [
     margin: 0 auto;
   }
 
-  .sector-block {
+  /* 2x4 Grid Layout */
+  .sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .sector-card {
     background-color: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 4px;
-    margin-bottom: 4rem;
     overflow: hidden;
-    scroll-margin-top: 70px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  }
-
-  /* Block Top Bar */
-  .block-top {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.75rem;
-    background-color: #f1f5f9;
-    border-bottom: 1px solid #e2e8f0;
+    flex-direction: column;
   }
 
-  .code-badge {
-    font-family: var(--font-saira);
-    font-size: 0.85rem;
-    color: var(--brand-blue);
-    font-weight: 800;
-    letter-spacing: 1px;
-  }
-
-  .spec-tag {
-    font-family: var(--font-saira);
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--brand-gray);
-    letter-spacing: 1.5px;
-  }
-
-  /* Block Content Grid */
-  .block-main {
-    display: grid;
-    grid-template-columns: 420px 1fr;
-  }
-
-  /* Dark Image Frame inside light card for high contrast */
+  /* Dark Image Frame on Top */
   .visual-frame {
     position: relative;
     background-color: var(--brand-black);
-    border-right: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 3rem 2rem;
     overflow: hidden;
   }
 
   .visual-frame img {
     width: 100%;
     height: auto;
-    max-width: 340px;
-    transform: scale(1.4);
+    max-width: 220px;
+    transform: scale(1.2);
     display: block;
   }
 
@@ -399,82 +222,55 @@ const industrySectors = [
   .bottom-left { bottom: 8px; left: 10px; }
   .bottom-right { bottom: 8px; right: 10px; }
 
-  /* Detail Frame */
+  /* Detail Frame Below Image */
   .detail-frame {
-    padding: 2.5rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .code-badge {
+    font-family: var(--font-saira);
+    font-size: 0.85rem;
+    color: var(--brand-blue);
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+
+  .spec-tag {
+    font-family: var(--font-saira);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--brand-gray);
+    letter-spacing: 1px;
+    text-align: right;
   }
 
   .detail-frame h2 {
     font-family: var(--font-saira);
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 800;
     color: var(--brand-black);
     text-transform: uppercase;
-    margin: 0 0 1rem 0;
+    margin: 0 0 2rem 0;
     letter-spacing: 0.5px;
   }
 
-  .description {
-    color: var(--brand-gray);
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin: 0 0 2rem 0;
-  }
-
-  /* Technical Specs Grid */
-  .specs-box {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-left: 3px solid var(--brand-blue);
-    border-radius: 2px;
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .specs-header {
-    font-family: var(--font-saira);
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--brand-blue);
-    letter-spacing: 1.5px;
-    margin-bottom: 1rem;
-  }
-
-  .specs-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.85rem 1.5rem;
-  }
-
-  .spec-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-
-  .spec-num {
-    font-family: var(--font-saira);
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--brand-blue);
-  }
-
-  .spec-text {
-    font-size: 0.9rem;
-    color: #334155;
-    font-weight: 500;
-  }
-
   /* Tactical Button */
-  .action-row {
-    margin-top: auto;
-  }
-
   .tactical-btn {
     font-family: var(--font-saira);
     display: inline-flex;
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
     background-color: var(--brand-blue);
@@ -486,6 +282,7 @@ const industrySectors = [
     letter-spacing: 1px;
     border-radius: 2px;
     transition: opacity 0.2s ease;
+    margin-top: auto; /* Pushes button to the bottom of the card */
   }
 
   .tactical-btn:hover {
@@ -545,21 +342,8 @@ const industrySectors = [
 
   /* Responsive Adjustments */
   @media (max-width: 992px) {
-    .block-main {
+    .sectors-grid {
       grid-template-columns: 1fr;
-    }
-
-    .visual-frame {
-      border-right: none;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .specs-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .nav-label {
-      display: none;
     }
   }
 </style>
