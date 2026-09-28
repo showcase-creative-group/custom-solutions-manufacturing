@@ -1,5 +1,4 @@
 ---
-// src/pages/what-we-do.astro
 import Layout from '../layouts/Layout.astro';
 
 const serviceGroups = [
@@ -91,7 +90,6 @@ const serviceGroups = [
 ---
 
 <Layout title="What We Do | Custom Solutions Manufacturing">
-  <!-- Dark Hero Header -->
   <section class="hero-section">
     <div class="container">
       <span class="sys-tag">[ CORE CAPABILITIES ]</span>
@@ -102,28 +100,11 @@ const serviceGroups = [
     </div>
   </section>
 
-  <!-- Sticky Tactical Navigation Bar -->
-  <nav class="tactical-nav">
-    <div class="container nav-flex">
-      <span class="nav-label">// SELECT GROUP:</span>
-      <div class="nav-scroll">
-        {serviceGroups.map((group) => (
-          <a href={`#${group.id}`} class="tactical-chip">
-            <span class="chip-code">{group.code}</span>
-            <span>{group.title.split(" ")[0]}</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </nav>
-
-  <!-- Alternating Sticky Curtain Sections -->
   <div class="showcase-wrapper">
     {serviceGroups.map((group, index) => (
       <section id={group.id} class={`capability-row ${index % 2 === 0 ? 'bg-white' : 'bg-slate'}`}>
         <div class={`container split-grid ${index % 2 !== 0 ? 'reverse' : ''}`}>
           
-          <!-- Text Content Side -->
           <div class="content-col">
             <div class="title-block">
               <span class="code-badge">{group.code}</span>
@@ -148,7 +129,6 @@ const serviceGroups = [
             </a>
           </div>
 
-          <!-- Image Side with Industrial Frame -->
           <div class="image-col">
             <div class="visual-frame">
               <div class="corner-cross top-left">+</div>
@@ -164,7 +144,6 @@ const serviceGroups = [
     ))}
   </div>
 
-  <!-- Dark Bottom Callout Banner -->
   <section class="bottom-callout">
     <div class="container">
       <div class="callout-box">
@@ -178,10 +157,9 @@ const serviceGroups = [
 </Layout>
 
 <style>
-  /* Dark Hero Header */
   .hero-section {
-    background-color: var(--brand-black);
-    color: #ffffff;
+    background-color: var(--bg-dark);
+    color: var(--bg-light);
     padding: 10rem 2rem 4rem 2rem;
     position: relative;
     border-bottom: 2px solid var(--brand-blue);
@@ -199,7 +177,7 @@ const serviceGroups = [
 
   .hero-section h1 {
     font-family: var(--font-saira);
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(3rem, 6vw, 4.5rem);
     font-weight: 800;
     line-height: 1.05;
     text-transform: uppercase;
@@ -219,76 +197,8 @@ const serviceGroups = [
     margin: 0;
   }
 
-  /* Sticky Navigation Bar */
-  .tactical-nav {
-    position: sticky;
-    top: 0;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-    z-index: 1000; /* Ensure this stays above the sliding curtains */
-    padding: 0.75rem 1.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  }
-
-  .nav-flex {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .nav-label {
-    font-family: var(--font-saira);
-    font-weight: 700;
-    font-size: 0.75rem;
-    color: var(--brand-black);
-    white-space: nowrap;
-    letter-spacing: 1px;
-  }
-
-  .nav-scroll {
-    display: flex;
-    gap: 0.5rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .tactical-chip {
-    font-family: var(--font-saira);
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--brand-black);
-    background-color: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    padding: 0.4rem 0.85rem;
-    border-radius: 2px;
-    text-decoration: none;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.2s ease;
-  }
-
-  .chip-code {
-    font-family: var(--font-saira);
-    color: var(--brand-blue);
-    font-size: 0.75rem;
-  }
-
-  .tactical-chip:hover {
-    border-color: var(--brand-blue);
-    background-color: var(--brand-blue);
-    color: #ffffff;
-  }
-
-  .tactical-chip:hover .chip-code {
-    color: #ffffff;
-  }
-
-  /* Container & Showcase Wrapper */
   .container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     width: 100%;
   }
@@ -303,30 +213,26 @@ const serviceGroups = [
   }
 
   .bg-white {
-    background-color: #ffffff;
+    background-color: var(--bg-light);
   }
 
   .bg-slate {
-    background-color: #f8fafc;
+    background-color: var(--bg-light-alt);
   }
 
-  /* 
-    The Curtain Effect (Desktop Only)
-    Pins the sections to the top and adds drop shadows so they slide over each other 
-  */
-  @media (min-width: 992px) {
+  @media (min-width: 900px) {
     .capability-row {
       position: sticky;
-      top: 55px; /* Offset to sit just below the sticky tactical nav */
-      height: calc(100vh - 55px);
+      top: 0;
+      height: 100vh;
       display: flex;
       align-items: center;
-      box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.05); /* Creates the overlapping physical depth */
+      box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.05);
       padding: 0 2rem;
+      overflow-y: auto;
     }
   }
 
-  /* Split Layout Grid */
   .split-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -334,7 +240,6 @@ const serviceGroups = [
     align-items: center;
   }
 
-  /* Reverses the order of columns for alternating rows */
   .split-grid.reverse .content-col {
     order: 2;
   }
@@ -343,7 +248,6 @@ const serviceGroups = [
     order: 1;
   }
 
-  /* Text Content Column */
   .title-block {
     display: flex;
     align-items: center;
@@ -354,7 +258,7 @@ const serviceGroups = [
   .code-badge {
     font-family: var(--font-saira);
     font-size: 0.85rem;
-    color: #ffffff;
+    color: var(--bg-light);
     background-color: var(--brand-black);
     padding: 0.25rem 0.75rem;
     border-radius: 2px;
@@ -373,7 +277,7 @@ const serviceGroups = [
 
   .content-col h2 {
     font-family: var(--font-saira);
-    font-size: 2.25rem;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
     font-weight: 800;
     color: var(--brand-black);
     text-transform: uppercase;
@@ -388,10 +292,9 @@ const serviceGroups = [
     margin: 0 0 2rem 0;
   }
 
-  /* Capabilities Box */
   .specs-box {
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-light);
     border-left: 4px solid var(--brand-blue);
     padding: 1.5rem;
     border-radius: 2px;
@@ -401,7 +304,7 @@ const serviceGroups = [
 
   .specs-header {
     font-family: var(--font-saira);
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-weight: 700;
     color: var(--brand-blue);
     letter-spacing: 1px;
@@ -419,7 +322,7 @@ const serviceGroups = [
 
   .specs-list li {
     font-size: 0.95rem;
-    color: #334155;
+    color: var(--brand-black);
     display: flex;
     align-items: flex-start;
     gap: 0.6rem;
@@ -435,7 +338,6 @@ const serviceGroups = [
     flex-shrink: 0;
   }
 
-  /* Image Column with Tech Frame */
   .visual-frame {
     position: relative;
     background-color: var(--brand-black);
@@ -447,6 +349,8 @@ const serviceGroups = [
   .visual-frame img {
     width: 100%;
     height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     display: block;
     border-radius: 2px;
     opacity: 0.9;
@@ -471,50 +375,56 @@ const serviceGroups = [
   .bottom-left { bottom: -10px; left: -10px; }
   .bottom-right { bottom: -10px; right: -10px; }
 
-  /* Tactical Button */
   .tactical-btn {
     font-family: var(--font-saira);
     display: inline-flex;
     align-items: center;
     gap: 1rem;
     background-color: var(--brand-blue);
-    color: #ffffff;
+    color: var(--bg-light);
     padding: 0.9rem 1.75rem;
     text-decoration: none;
     font-weight: 700;
     font-size: 0.9rem;
     letter-spacing: 1px;
     border-radius: 2px;
-    transition: opacity 0.2s ease;
+    transition: background-color 0.2s ease;
   }
 
   .tactical-btn:hover {
-    opacity: 0.85;
+    background-color: var(--brand-blue-hover);
   }
 
-  /* Bottom Dark Callout Banner */
+  .btn-arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+
+  .tactical-btn:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
   .bottom-callout {
     position: relative;
-    z-index: 100; /* Stacks over the final capability row */
+    z-index: 100;
     background-color: var(--brand-black);
     padding: 6rem 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--border-dark);
     box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.2);
   }
 
   .callout-box {
-    background-color: var(--brand-black);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-left: 4px solid var(--brand-blue);
+    background-color: var(--bg-dark-card);
+    border: 1px solid var(--border-dark);
     padding: 3.5rem 2.5rem;
     text-align: center;
   }
 
   .callout-box h2 {
     font-family: var(--font-saira);
-    font-size: 2.25rem;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
     font-weight: 800;
-    color: #ffffff;
+    color: var(--bg-light);
     text-transform: uppercase;
     margin: 0.5rem 0 1rem 0;
   }
@@ -531,7 +441,7 @@ const serviceGroups = [
     font-family: var(--font-saira);
     display: inline-block;
     background-color: var(--brand-blue);
-    color: #ffffff;
+    color: var(--bg-light);
     padding: 0.9rem 2.25rem;
     text-decoration: none;
     font-weight: 700;
@@ -539,15 +449,18 @@ const serviceGroups = [
     font-size: 0.9rem;
     letter-spacing: 1px;
     border-radius: 2px;
-    transition: opacity 0.2s ease;
+    transition: background-color 0.2s ease;
   }
 
   .btn-primary:hover {
-    opacity: 0.85;
+    background-color: var(--brand-blue-hover);
   }
 
-  /* Responsive Adjustments */
-  @media (max-width: 992px) {
+  @media (max-width: 900px) {
+    .capability-row {
+      padding: 3.5rem 1.5rem;
+    }
+
     .split-grid, .split-grid.reverse {
       grid-template-columns: 1fr;
       gap: 3rem;
@@ -559,16 +472,6 @@ const serviceGroups = [
     
     .split-grid.reverse .image-col {
       order: 2;
-    }
-
-    .nav-label {
-      display: none;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .specs-list {
-      grid-template-columns: 1fr;
     }
   }
 </style>
