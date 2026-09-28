@@ -8,56 +8,56 @@ const industrySectors = [
     id: "food",
     code: "SEC-01",
     title: "Food",
-    img: `${R2_BASE}/Food_Icon.png`,
+    img: `${R2_BASE}/Industries-Food-Icon.svg`,
     spec: "FDA / USDA SANITARY GRADE"
   },
   {
     id: "robotics",
     code: "SEC-02",
     title: "Robotics",
-    img: `${R2_BASE}/Robotics_Icon.png`,
+    img: `${R2_BASE}/Industries-Robotics-Icon.svg`,
     spec: "HIGH-SPEED DYNAMIC TOLERANCE"
   },
   {
     id: "defense",
     code: "SEC-03",
     title: "Defense",
-    img: `${R2_BASE}/Defense_Icon.png`,
+    img: `${R2_BASE}/Industries-Defense-Icon.svg`,
     spec: "ITAR REGISTERED // CMMC COMPLIANT"
   },
   {
     id: "data-centers",
     code: "SEC-04",
     title: "Data Centers",
-    img: `${R2_BASE}/Data_Center_Icon.png`,
+    img: `${R2_BASE}/Industries-Data_Center-Icon.svg`,
     spec: "HIGH-DENSITY THERMAL SUPPORT"
   },
   {
     id: "construction",
     code: "SEC-05",
     title: "Construction",
-    img: `${R2_BASE}/Construction_Icon.png`,
+    img: `${R2_BASE}/Industries-Construction-Icon.svg`,
     spec: "AWS D1.1 CERTIFIED WELDING"
   },
   {
     id: "medical",
     code: "SEC-06",
     title: "Medical",
-    img: `${R2_BASE}/Medical_Icon.png`,
+    img: `${R2_BASE}/Industries-Medical-Icon.svg`,
     spec: "CLEANROOM ISO CLASS 7 READY"
   },
   {
     id: "technology",
     code: "SEC-07",
     title: "Technology",
-    img: `${R2_BASE}/Technology_Icon.png`,
+    img: `${R2_BASE}/Industries-Technology-Icon.svg`,
     spec: "MICRON-LEVEL TOLERANCES"
   },
   {
     id: "automotive",
     code: "SEC-08",
     title: "Automotive",
-    img: `${R2_BASE}/Automotive_Icon.png`,
+    img: `${R2_BASE}/Industries-Automotive-Icon.svg`,
     spec: "CONTINUOUS UPTIME TOOLING"
   }
 ];
@@ -85,7 +85,7 @@ const industrySectors = [
               <div class="corner-cross top-right">+</div>
               <div class="corner-cross bottom-left">+</div>
               <div class="corner-cross bottom-right">+</div>
-              <img src={sector.img} alt={sector.title} width="400" height="400" loading="lazy" />
+              <img src={sector.img} alt={sector.title} loading="lazy" />
             </div>
 
             <div class="detail-frame">
@@ -194,42 +194,27 @@ const industrySectors = [
     background-color: var(--brand-black);
     border-bottom: 1px solid var(--border-light);
     height: 320px;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem;
+    overflow: hidden;
+    padding: 2.5rem;
   }
 
   .visual-frame img {
-    max-width: 85%;
-    max-height: 85%;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    max-width: 250px;
+    max-height: 250px;
     object-fit: contain;
     display: block;
-    filter: brightness(0.85) contrast(1.1);
-    transition: transform 0.4s ease, filter 0.4s ease;
-    z-index: 0;
-  }
-
-  .visual-frame::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.65) 100%);
-    pointer-events: none;
-    z-index: 1;
-    transition: opacity 0.3s ease;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s ease;
   }
 
   .sector-card:hover .visual-frame img {
-    transform: scale(1.08);
-    filter: brightness(1) contrast(1.15);
-  }
-
-  .sector-card:hover .visual-frame::after {
-    opacity: 0.5;
+    transform: scale(1.1);
   }
 
   .corner-cross {
