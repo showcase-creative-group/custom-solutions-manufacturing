@@ -1,5 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import technologyIcon from '../assets/industries/Industries-Technology-Icon.svg';
+import roboticsIcon from '../assets/industries/Industries-Robotics-Icon.svg';
+import medicalIcon from '../assets/industries/Industries-Medical-Icon.svg';
+import foodIcon from '../assets/industries/Industries-Food-Icon.svg';
+import defenseIcon from '../assets/industries/Industries-Defense-Icon.svg';
+import dataCenterIcon from '../assets/industries/Industries-Data-Center-Icon.svg';
+import constructionIcon from '../assets/industries/Industries-Construction-Icon.svg';
+import automotiveIcon from '../assets/industries/Industries-Automotive-Icon.svg';
 
 const R2_BASE = "https://pub-6b61e64b6d9145a3b0f5e845de93fbb9.r2.dev/Industries";
 
@@ -8,56 +16,56 @@ const industrySectors = [
     id: "food",
     code: "SEC-01",
     title: "Food",
-    img: `${R2_BASE}/Industries-Food-Icon.svg`,
+    img: foodIcon.src,
     spec: "FDA / USDA SANITARY GRADE"
   },
   {
     id: "robotics",
     code: "SEC-02",
     title: "Robotics",
-    img: `${R2_BASE}/Industries-Robotics-Icon.svg`,
+    img: roboticsIcon.src,
     spec: "HIGH-SPEED DYNAMIC TOLERANCE"
   },
   {
     id: "defense",
     code: "SEC-03",
     title: "Defense",
-    img: `${R2_BASE}/Industries-Defense-Icon.svg`,
+    img: defenseIcon.src,
     spec: "ITAR REGISTERED // CMMC COMPLIANT"
   },
   {
     id: "data-centers",
     code: "SEC-04",
     title: "Data Centers",
-    img: `${R2_BASE}/Industries-Data_Center-Icon.svg`,
+    img: dataCenterIcon.src,
     spec: "HIGH-DENSITY THERMAL SUPPORT"
   },
   {
     id: "construction",
     code: "SEC-05",
     title: "Construction",
-    img: `${R2_BASE}/Industries-Construction-Icon.svg`,
+    img: constructionIcon.src,
     spec: "AWS D1.1 CERTIFIED WELDING"
   },
   {
     id: "medical",
     code: "SEC-06",
     title: "Medical",
-    img: `${R2_BASE}/Industries-Medical-Icon.svg`,
+    img: medicalIcon.src,
     spec: "CLEANROOM ISO CLASS 7 READY"
   },
   {
     id: "technology",
     code: "SEC-07",
     title: "Technology",
-    img: `${R2_BASE}/Industries-Technology-Icon.svg`,
+    img: technologyIcon.src,
     spec: "MICRON-LEVEL TOLERANCES"
   },
   {
     id: "automotive",
     code: "SEC-08",
     title: "Automotive",
-    img: `${R2_BASE}/Industries-Automotive-Icon.svg`,
+    img: automotiveIcon.src,
     spec: "CONTINUOUS UPTIME TOOLING"
   }
 ];
@@ -81,10 +89,6 @@ const industrySectors = [
           <article id={sector.id} class="sector-card">
             
             <div class="visual-frame">
-              <div class="corner-cross top-left">+</div>
-              <div class="corner-cross top-right">+</div>
-              <div class="corner-cross bottom-left">+</div>
-              <div class="corner-cross bottom-right">+</div>
               <img src={sector.img} alt={sector.title} loading="lazy" />
             </div>
 
@@ -191,46 +195,28 @@ const industrySectors = [
 
   .visual-frame {
     position: relative;
-    background-color: var(--brand-black);
-    border-bottom: 1px solid var(--border-light);
     height: 320px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-bottom: 1px solid var(--border-light);
     overflow: hidden;
-    padding: 2.5rem;
+    background-color: var(--brand-black, #000000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .visual-frame img {
     width: 100%;
     height: 100%;
-    max-width: 250px;
-    max-height: 250px;
     object-fit: contain;
+    padding: 3rem; /* Added custom padding */
+    box-sizing: border-box; /* Ensures padding scales content inward */
     display: block;
-    position: relative;
-    z-index: 2;
     transition: transform 0.4s ease;
   }
 
   .sector-card:hover .visual-frame img {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
-
-  .corner-cross {
-    position: absolute;
-    font-family: var(--font-saira);
-    font-size: 0.85rem;
-    color: var(--brand-blue);
-    font-weight: bold;
-    z-index: 3;
-    pointer-events: none;
-  }
-
-  .top-left { top: 8px; left: 10px; }
-  .top-right { top: 8px; right: 10px; }
-  .bottom-left { bottom: 8px; left: 10px; }
-  .bottom-right { bottom: 8px; right: 10px; }
 
   .detail-frame {
     padding: 2rem;
