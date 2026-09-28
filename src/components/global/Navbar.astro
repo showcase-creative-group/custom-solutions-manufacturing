@@ -1,4 +1,7 @@
 ---
+// 1. Import the file directly (No Astro Image component)
+import Logo from "../../assets/custom_solutions_manufacturing_logo.png";
+
 const pathname = Astro.url.pathname;
 const isHome = pathname === '/' || pathname === '/index.html';
 
@@ -10,8 +13,8 @@ const isActive = (path) => {
   <nav>
     <div class="logo">
       <a href="/">
-        <!-- Pointing directly to the public folder root -->
-        <img src="/custom_solutions_manufacturing_logo.png" alt="CSM Logo" />
+        <!-- 2. Use Logo.src in a standard img tag to bypass optimization -->
+        <img src={Logo.src} alt="CSM Logo" />
       </a>
     </div>
     
@@ -67,22 +70,15 @@ const isActive = (path) => {
   }
 
   .logo img {
-    height: 40px;
+    /* 3. Increased from 40px. Adjust this if it's still too small or big */
+    height: 75px; 
     width: auto;
     transition: filter 0.3s ease;
   }
 
-  /* 
-    I have commented out this CSS rule temporarily. 
-    If this was turning your logo white against a white background, 
-    this will force it to show up in its original colors. 
-    Uncomment it later if you need the logo to be white on the homepage! 
-  */
-  /*
   header.is-home.top-of-page .logo img {
     filter: brightness(0) invert(1);
   }
-  */
 
   .nav-actions {
     display: flex;
