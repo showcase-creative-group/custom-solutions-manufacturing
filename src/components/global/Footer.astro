@@ -1,5 +1,7 @@
 ---
 // src/components/global/Footer.astro
+import Logo from "../../assets/custom_solutions_manufacturing_logo.png";
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -7,7 +9,11 @@ const currentYear = new Date().getFullYear();
   <div class="container">
     
     <div class="footer-col brand-col">
-      <h3>Custom Solutions</h3>
+      <div class="footer-logo">
+        <a href="/">
+          <img src={Logo.src} alt="Custom Solutions Manufacturing Logo" />
+        </a>
+      </div>
       <p class="description">
         Custom-engineered manufacturing solutions solving one-of-a-kind industrial challenges at highly competitive prices.<br><br>
         CSM specializes in custom automation, precision machining, and turnkey systems integration.
@@ -90,14 +96,18 @@ const currentYear = new Date().getFullYear();
     gap: 4rem;
   }
 
-  h3 {
-    font-family: var(--font-saira);
-    margin-top: 0;
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+  .footer-logo {
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-logo a {
+    display: inline-block;
+  }
+
+  .footer-logo img {
+    height: 75px; /* Adjust size as needed */
+    width: auto;
+    filter: brightness(0) invert(1); /* Makes the logo all-white for dark background */
   }
   
   .description {
@@ -243,7 +253,7 @@ const currentYear = new Date().getFullYear();
     }
     
     .contact-item {
-        font-size: 1rem;
+      font-size: 1rem;
     }
   }
 </style>
