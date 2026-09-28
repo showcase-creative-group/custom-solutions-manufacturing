@@ -1,92 +1,71 @@
 ---
-// src/pages/projects.astro
 import Layout from '../layouts/Layout.astro';
-
-const projectStats = [
-  { label: "COMPLETED BUILDS", value: "350+" },
-  { label: "SHOP CAPACITY", value: "45,000 SQ FT" },
-  { label: "PRECISION TOLERANCE", value: "±0.0002 IN" },
-  { label: "ON-TIME DELIVERY", value: "99.4%" },
-];
 
 const projects = [
   {
     id: "conveyor-system",
-    code: "PRJ-01",
-    category: "automation",
-    categoryLabel: "AUTOMATION & CONTROLS",
     title: "Automated Material Handling System",
-    client: "FOOD",
-    timeline: "14 Weeks",
-    material: "316 Stainless Steel",
-    description: "Turnkey multi-axis automated conveyor integration built for harsh washdown environments. Features custom pneumatic sorting units and PLC automation control cells.",
     image: "https://placehold.co/800x600/050505/ffffff?text=Automated+Conveyor+System"
   },
   {
     id: "titanium-components",
-    code: "PRJ-02",
-    category: "manufacturing",
-    categoryLabel: "PRECISION MANUFACTURING",
     title: "Titanium Aerospace Flight Mounts",
-    client: "DEFENSE",
-    timeline: "8 Weeks",
-    material: "Ti-6Al-4V Titanium",
-    description: "Micron-level tolerance multi-axis CNC milling for high-stress structural airframe hardware. 100% CMM verified with full heat-treat material certification.",
     image: "https://placehold.co/800x600/050505/ffffff?text=Titanium+Flight+Mounts"
   },
   {
     id: "robotic-welding-cell",
-    code: "PRJ-03",
-    category: "manufacturing",
-    categoryLabel: "PRECISION MANUFACTURING",
     title: "Robotic Welding Assembly Cell",
-    client: "AUTOMOTIVE",
-    timeline: "12 Weeks",
-    material: "Structural Steel / Aluminum",
-    description: "AWS D1.1 certified heavy structural welding frame for automated automotive body-in-white (BIW) sub-assemblies with integrated safety interlocks.",
     image: "https://placehold.co/800x600/050505/ffffff?text=Robotic+Welding+Cell"
   },
   {
     id: "cleanroom-chassis",
-    code: "PRJ-04",
-    category: "assembly",
-    categoryLabel: "ASSEMBLY & INTEGRATION",
     title: "Semiconductor Vacuum Enclosure",
-    client: "TECHNOLOGY",
-    timeline: "10 Weeks",
-    material: "Electropolished Stainless",
-    description: "Ultra-high vacuum chamber assembly machined and electropolished for ISO Class 7 cleanroom medical and semiconductor diagnostic hardware.",
     image: "https://placehold.co/800x600/050505/ffffff?text=Vacuum+Enclosure+Assembly"
   },
   {
     id: "server-racking-grid",
-    code: "PRJ-05",
-    category: "manufacturing",
-    categoryLabel: "PRECISION MANUFACTURING",
     title: "Data Center Structural Racking Grid",
-    client: "DATA CENTERS",
-    timeline: "6 Weeks",
-    material: "Heavy-Gauge Steel",
-    description: "High-density modular server frame containment grid custom-engineered for seismic resistance and overhead fluid cooling line deployment.",
     image: "https://placehold.co/800x600/050505/ffffff?text=Data+Center+Rack+Grid"
   },
   {
     id: "eoat-tooling",
-    code: "PRJ-06",
-    category: "automation",
-    categoryLabel: "AUTOMATION & CONTROLS",
     title: "Custom End-of-Arm Tooling (EOAT)",
-    client: "ROBOTICS",
-    timeline: "4 Weeks",
-    material: "Anodized 6061 Aluminum",
-    description: "High-speed lightweight pneumatic EOAT end-effectors designed for high-cycle pick-and-place automation with integrated optical sensor arrays.",
     image: "https://placehold.co/800x600/050505/ffffff?text=Robotic+EOAT+Tooling"
+  },
+  {
+    id: "hydraulic-manifold",
+    title: "Custom Hydraulic Valve Manifold",
+    image: "https://placehold.co/800x600/050505/ffffff?text=Hydraulic+Valve+Manifold"
+  },
+  {
+    id: "inspection-fixture",
+    title: "CMM Metrology Checking Fixture",
+    image: "https://placehold.co/800x600/050505/ffffff?text=CMM+Checking+Fixture"
+  },
+  {
+    id: "plc-control-panel",
+    title: "UL 508A Industrial Control Panel",
+    image: "https://placehold.co/800x600/050505/ffffff?text=UL+Control+Panel"
+  },
+  {
+    id: "spindle-rebuild",
+    title: "High-Speed CNC Spindle Rebuild",
+    image: "https://placehold.co/800x600/050505/ffffff?text=CNC+Spindle+Rebuild"
+  },
+  {
+    id: "stamping-die",
+    title: "Progressive Sheet Metal Stamping Die",
+    image: "https://placehold.co/800x600/050505/ffffff?text=Progressive+Stamping+Die"
+  },
+  {
+    id: "gantry-robot",
+    title: "Overhead 3-Axis Cartesian Gantry",
+    image: "https://placehold.co/800x600/050505/ffffff?text=Cartesian+Gantry+Robot"
   }
 ];
 ---
 
 <Layout title="Case Studies & Projects | Custom Solutions Manufacturing">
-  <!-- Dark High-Impact Hero -->
   <section class="hero-section">
     <div class="container">
       <span class="sys-tag">[ CASE STUDIES & ARCHIVE ]</span>
@@ -97,99 +76,22 @@ const projects = [
     </div>
   </section>
 
-  <!-- Metrics Bar -->
-  <section class="metrics-bar">
-    <div class="container metrics-grid">
-      {projectStats.map((stat) => (
-        <div class="metric-card">
-          <span class="metric-value">{stat.value}</span>
-          <span class="metric-label">{stat.label}</span>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Sticky Tactical Filter Bar -->
-  <nav class="tactical-nav">
-    <div class="container nav-flex">
-      <span class="nav-label">// FILTER DISCIPLINE:</span>
-      <div class="filter-group">
-        <button class="tactical-chip active" data-filter="all">
-          <span class="chip-code">ALL</span>
-          <span>ALL BUILDS</span>
-        </button>
-        <button class="tactical-chip" data-filter="engineering">
-          <span class="chip-code">ENG</span>
-          <span>ENGINEERING & DESIGN</span>
-        </button>
-        <button class="tactical-chip" data-filter="manufacturing">
-          <span class="chip-code">MFG</span>
-          <span>PRECISION MANUFACTURING</span>
-        </button>
-        <button class="tactical-chip" data-filter="automation">
-          <span class="chip-code">AUT</span>
-          <span>AUTOMATION & CONTROLS</span>
-        </button>
-        <button class="tactical-chip" data-filter="assembly">
-          <span class="chip-code">ASM</span>
-          <span>ASSEMBLY & INTEGRATION</span>
-        </button>
-        <button class="tactical-chip" data-filter="specialized">
-          <span class="chip-code">SPC</span>
-          <span>SPECIALIZED SERVICES</span>
-        </button>
-        <button class="tactical-chip" data-filter="machine">
-          <span class="chip-code">MAC</span>
-          <span>MACHINE SERVICES</span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Clean Light-Slate Showcase Grid -->
   <section class="showcase-section">
     <div class="container">
       <div class="projects-grid">
         {projects.map((project) => (
-          <article class="project-card" data-category={project.category}>
-            <div class="card-top">
-              <span class="code-badge">{project.code}</span>
-              <span class="category-tag">{project.categoryLabel}</span>
-            </div>
-
-            <!-- Dark Image Container for Strong Icon/Photo Contrast -->
+          <article class="project-card">
             <div class="visual-frame">
               <div class="corner-cross top-left">+</div>
               <div class="corner-cross top-right">+</div>
               <div class="corner-cross bottom-left">+</div>
               <div class="corner-cross bottom-right">+</div>
+              
               <img src={project.image} alt={project.title} loading="lazy" />
-            </div>
-
-            <div class="card-body">
-              <h2>{project.title}</h2>
-              <p class="description">{project.description}</p>
-
-              <!-- Technical Readout Box -->
-              <div class="specs-box">
-                <div class="spec-row">
-                  <span class="spec-label">SECTOR:</span>
-                  <span class="spec-value">{project.client}</span>
-                </div>
-                <div class="spec-row">
-                  <span class="spec-label">TIMELINE:</span>
-                  <span class="spec-value">{project.timeline}</span>
-                </div>
-                <div class="spec-row">
-                  <span class="spec-label">PRIMARY MATERIAL:</span>
-                  <span class="spec-value">{project.material}</span>
-                </div>
+              
+              <div class="overlay-content">
+                <h2>{project.title}</h2>
               </div>
-
-              <a href="/contact" class="tactical-btn">
-                <span>REQUEST SIMILAR BUILD</span>
-                <span class="btn-arrow">&rarr;</span>
-              </a>
             </div>
           </article>
         ))}
@@ -197,7 +99,6 @@ const projects = [
     </div>
   </section>
 
-  <!-- Dark SpaceX Style Bottom Callout Banner -->
   <section class="bottom-callout">
     <div class="container">
       <div class="callout-box">
@@ -211,10 +112,9 @@ const projects = [
 </Layout>
 
 <style>
-  /* Hero Section */
   .hero-section {
-    background-color: var(--brand-black);
-    color: #ffffff;
+    background-color: var(--bg-dark);
+    color: var(--bg-light);
     padding: 10rem 2rem 4rem 2rem;
     position: relative;
     border-bottom: 2px solid var(--brand-blue);
@@ -232,7 +132,7 @@ const projects = [
 
   .hero-section h1 {
     font-family: var(--font-saira);
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(3rem, 6vw, 4.5rem);
     font-weight: 800;
     line-height: 1.05;
     text-transform: uppercase;
@@ -252,194 +152,57 @@ const projects = [
     margin: 0;
   }
 
-  /* Metrics Bar */
-  .metrics-bar {
-    background-color: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 2.5rem 2rem;
-  }
-
-  .metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-  }
-
-  .metric-card {
-    border-left: 3px solid var(--brand-blue);
-    padding-left: 1.25rem;
-  }
-
-  .metric-value {
-    font-family: var(--font-saira);
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--brand-black);
-    display: block;
-    line-height: 1;
-    margin-bottom: 0.35rem;
-  }
-
-  .metric-label {
-    font-family: var(--font-saira);
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--brand-gray);
-    letter-spacing: 1px;
-  }
-
-  /* Tactical Sticky Filter Bar */
-  .tactical-nav {
-    position: sticky;
-    top: 0;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-    z-index: 900;
-    padding: 0.75rem 1.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  }
-
-  .nav-flex {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .nav-label {
-    font-family: var(--font-saira);
-    font-weight: 700;
-    font-size: 0.75rem;
-    color: var(--brand-black);
-    white-space: nowrap;
-    letter-spacing: 1px;
-  }
-
-  .filter-group {
-    display: flex;
-    gap: 0.5rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .tactical-chip {
-    font-family: var(--font-saira);
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--brand-black);
-    background-color: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    padding: 0.45rem 0.9rem;
-    border-radius: 2px;
-    cursor: pointer;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.2s ease;
-  }
-
-  .chip-code {
-    font-family: var(--font-saira);
-    color: var(--brand-blue);
-    font-size: 0.75rem;
-  }
-
-  .tactical-chip:hover, .tactical-chip.active {
-    border-color: var(--brand-blue);
-    background-color: var(--brand-blue);
-    color: #ffffff;
-  }
-
-  .tactical-chip:hover .chip-code, .tactical-chip.active .chip-code {
-    color: #ffffff;
-  }
-
-  /* Main Showcase Grid */
-  .showcase-section {
-    background-color: #f8fafc;
-    padding: 5rem 2rem;
-  }
-
   .container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
+    width: 100%;
+  }
+
+  .showcase-section {
+    background-color: var(--bg-light);
+    padding: 5rem 2rem;
   }
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
 
   .project-card {
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 4px;
+    position: relative;
+    border-radius: 2px;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .project-card:hover {
-    border-color: var(--brand-blue);
-    box-shadow: 0 8px 24px rgba(49, 130, 206, 0.12);
-  }
-
-  .card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.85rem 1.25rem;
-    background-color: #f1f5f9;
-    border-bottom: 1px solid #e2e8f0;
-  }
-
-  .code-badge {
-    font-family: var(--font-saira);
-    font-size: 0.85rem;
-    color: var(--brand-blue);
-    font-weight: 800;
-    letter-spacing: 1px;
-  }
-
-  .category-tag {
-    font-family: var(--font-saira);
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--brand-gray);
-    letter-spacing: 1px;
-  }
-
-  /* Visual Container */
   .visual-frame {
     position: relative;
     background-color: var(--brand-black);
-    border-bottom: 1px solid #e2e8f0;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
+    border: 1px solid var(--border-light);
   }
 
   .visual-frame img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     transition: transform 0.4s ease;
   }
 
   .project-card:hover .visual-frame img {
-    transform: scale(1.04);
+    transform: scale(1.05);
   }
 
   .corner-cross {
     position: absolute;
     font-family: var(--font-saira);
-    font-size: 0.75rem;
-    color: var(--brand-gray);
-    opacity: 0.5;
-    z-index: 2;
+    font-size: 0.85rem;
+    color: var(--brand-blue);
+    font-weight: bold;
+    z-index: 3;
+    pointer-events: none;
   }
 
   .top-left { top: 8px; left: 10px; }
@@ -447,103 +210,55 @@ const projects = [
   .bottom-left { bottom: 8px; left: 10px; }
   .bottom-right { bottom: 8px; right: 10px; }
 
-  /* Card Body */
-  .card-body {
+  .overlay-content {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+    text-align: center;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
-  .card-body h2 {
+  .project-card:hover .overlay-content {
+    opacity: 1;
+  }
+
+  .overlay-content h2 {
     font-family: var(--font-saira);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 800;
-    color: var(--brand-black);
+    color: var(--bg-light);
     text-transform: uppercase;
-    margin: 0 0 0.85rem 0;
-    line-height: 1.2;
-  }
-
-  .description {
-    color: var(--brand-gray);
-    font-size: 0.98rem;
-    line-height: 1.6;
-    margin: 0 0 1.5rem 0;
-  }
-
-  /* Tech Readout Box */
-  .specs-box {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-left: 3px solid var(--brand-blue);
-    border-radius: 2px;
-    padding: 1rem 1.25rem;
-    margin-bottom: 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .spec-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.825rem;
-  }
-
-  .spec-label {
-    font-family: var(--font-saira);
-    font-weight: 700;
-    color: var(--brand-blue);
+    margin: 0;
+    line-height: 1.3;
     letter-spacing: 0.5px;
   }
 
-  .spec-value {
-    color: #334155;
-    font-weight: 600;
-  }
-
-  .tactical-btn {
-    font-family: var(--font-saira);
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--brand-blue);
-    color: #ffffff;
-    padding: 0.8rem 1.25rem;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.825rem;
-    letter-spacing: 1px;
-    border-radius: 2px;
-    margin-top: auto;
-    transition: opacity 0.2s ease;
-  }
-
-  .tactical-btn:hover {
-    opacity: 0.85;
-  }
-
-  /* Bottom Dark Callout Banner */
   .bottom-callout {
+    position: relative;
+    z-index: 100;
     background-color: var(--brand-black);
     padding: 6rem 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--border-dark);
   }
 
   .callout-box {
-    background-color: var(--brand-black);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-left: 4px solid var(--brand-blue);
+    background-color: var(--bg-dark-card);
+    border: 1px solid var(--border-dark);
     padding: 3.5rem 2.5rem;
     text-align: center;
   }
 
   .callout-box h2 {
     font-family: var(--font-saira);
-    font-size: 2.25rem;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
     font-weight: 800;
-    color: #ffffff;
+    color: var(--bg-light);
     text-transform: uppercase;
     margin: 0.5rem 0 1rem 0;
   }
@@ -560,7 +275,7 @@ const projects = [
     font-family: var(--font-saira);
     display: inline-block;
     background-color: var(--brand-blue);
-    color: #ffffff;
+    color: var(--bg-light);
     padding: 0.9rem 2.25rem;
     text-decoration: none;
     font-weight: 700;
@@ -568,55 +283,23 @@ const projects = [
     font-size: 0.9rem;
     letter-spacing: 1px;
     border-radius: 2px;
-    transition: opacity 0.2s ease;
+    transition: background-color 0.2s ease;
   }
 
   .btn-primary:hover {
-    opacity: 0.85;
+    background-color: var(--brand-blue-hover);
   }
 
-  /* Responsive Adjustments */
-  @media (max-width: 992px) {
-    .metrics-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
+  @media (max-width: 900px) {
     .projects-grid {
       grid-template-columns: 1fr;
+      gap: 2rem;
     }
 
-    .nav-label {
-      display: none;
-    }
-  }
-
-  @media (max-width: 576px) {
-    .metrics-grid {
-      grid-template-columns: 1fr;
+    .overlay-content {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1.5rem;
     }
   }
 </style>
-
-<script>
-  const filterButtons = document.querySelectorAll('.tactical-chip');
-  const projectCards = document.querySelectorAll<HTMLElement>('.project-card');
-
-  filterButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      filterButtons.forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      projectCards.forEach((card) => {
-        const category = card.getAttribute('data-category');
-        if (filterValue === 'all' || category === filterValue) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-</script>
