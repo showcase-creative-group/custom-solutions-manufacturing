@@ -17,7 +17,6 @@ const isActive = (path: string) => {
       </a>
     </div>
 
-    <!-- Mobile Hamburger Toggle Button -->
     <button 
       id="menu-toggle" 
       class="hamburger" 
@@ -30,7 +29,6 @@ const isActive = (path: string) => {
       <span class="bar"></span>
     </button>
 
-    <!-- Nav Actions Container -->
     <div id="nav-actions" class="nav-actions">
       <ul class="nav-links">
         <li><a href="/what-we-do" class={isActive('/what-we-do')}>What We Do</a></li>
@@ -94,7 +92,6 @@ const isActive = (path: string) => {
     filter: brightness(0) invert(1);
   }
 
-  /* Hamburger Icon Styling */
   .hamburger {
     display: none;
     flex-direction: column;
@@ -133,7 +130,6 @@ const isActive = (path: string) => {
     transform: translateY(-8.5px) rotate(-45deg);
   }
 
-  /* Desktop Nav Actions Container */
   .nav-actions {
     display: flex;
     align-items: center;
@@ -190,9 +186,6 @@ const isActive = (path: string) => {
     transform: translateY(-1px);
   }
 
-  /* ------------------------------------------------------------- */
-  /* Mobile Layout (Breakpoint at 900px)                           */
-  /* ------------------------------------------------------------- */
   @media (max-width: 900px) {
     .hamburger {
       display: flex;
