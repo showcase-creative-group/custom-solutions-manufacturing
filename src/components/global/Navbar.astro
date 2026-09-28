@@ -1,7 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import Logo from "../../assets/custom_solutions_manufacturing_logo.png";
-
 const pathname = Astro.url.pathname;
 const isHome = pathname === '/' || pathname === '/index.html';
 
@@ -13,7 +10,8 @@ const isActive = (path) => {
   <nav>
     <div class="logo">
       <a href="/">
-        <Image src={Logo} alt="CSM Logo" />
+        <!-- Pointing directly to the public folder root -->
+        <img src="/custom_solutions_manufacturing_logo.png" alt="CSM Logo" />
       </a>
     </div>
     
@@ -74,9 +72,17 @@ const isActive = (path) => {
     transition: filter 0.3s ease;
   }
 
+  /* 
+    I have commented out this CSS rule temporarily. 
+    If this was turning your logo white against a white background, 
+    this will force it to show up in its original colors. 
+    Uncomment it later if you need the logo to be white on the homepage! 
+  */
+  /*
   header.is-home.top-of-page .logo img {
     filter: brightness(0) invert(1);
   }
+  */
 
   .nav-actions {
     display: flex;
