@@ -68,7 +68,7 @@ const projects = [
 <Layout title="Case Studies & Projects | Custom Solutions Manufacturing">
   <section class="hero-section">
     <div class="container">
-      <span class="sys-tag">[ CASE STUDIES & ARCHIVE ]</span>
+      <span class="eyebrow-text">OUR WORK</span>
       <h1>FEATURED<br/><span class="text-blue">PROJECT BUILDS</span></h1>
       <p class="hero-desc">
         Explore recent custom machinery builds, multi-axis machining applications, and turnkey industrial system integrations.
@@ -102,7 +102,7 @@ const projects = [
   <section class="bottom-callout">
     <div class="container">
       <div class="callout-box">
-        <span class="sys-tag">// HAVE A SPECIFIC SPECIFICATION?</span>
+        <span class="eyebrow-text">START A CONVERSATION</span>
         <h2>READY TO DISCUSS YOUR CUSTOM BUILD?</h2>
         <p>Our engineering, multi-axis machining, and automation assembly teams are ready to review your CAD files and project specifications.</p>
         <a href="/contact" class="btn-primary">SUBMIT PROJECT CAD / DRAWINGS</a>
@@ -120,14 +120,15 @@ const projects = [
     border-bottom: 2px solid var(--brand-blue);
   }
 
-  .sys-tag {
+  .eyebrow-text {
     font-family: var(--font-saira);
-    color: var(--brand-blue);
-    font-size: 0.85rem;
-    font-weight: 700;
+    color: var(--brand-gray);
+    font-size: 0.9rem;
+    font-weight: 600;
     letter-spacing: 2px;
     margin-bottom: 1rem;
     display: block;
+    text-transform: uppercase;
   }
 
   .hero-section h1 {
@@ -215,10 +216,10 @@ const projects = [
     inset: 0;
     background-color: rgba(0, 0, 0, 0.85);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
+    justify-content: flex-start;
     padding: 2rem;
-    text-align: center;
+    text-align: left;
     z-index: 2;
     opacity: 0;
     transition: opacity 0.3s ease;

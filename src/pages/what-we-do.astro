@@ -92,7 +92,7 @@ const serviceGroups = [
 <Layout title="What We Do | Custom Solutions Manufacturing">
   <section class="hero-section">
     <div class="container">
-      <span class="sys-tag">[ CORE CAPABILITIES ]</span>
+      <span class="eyebrow-text">CORE CAPABILITIES</span>
       <h1>ENGINEERED FOR<br/><span class="text-blue">EXTREME PERFORMANCE</span></h1>
       <p class="hero-desc">
         End-to-end custom manufacturing, spanning 6 specialized capability groups built to handle single prototypes up to high-volume turnkey systems.
@@ -115,7 +115,7 @@ const serviceGroups = [
             <p class="description">{group.description}</p>
             
             <div class="specs-box">
-              <div class="specs-header">// CAPABILITIES</div>
+              <div class="specs-header">CAPABILITIES</div>
               <ul class="specs-list">
                 {group.capabilities.map((cap) => (
                   <li><span class="bullet"></span>{cap}</li>
@@ -147,7 +147,7 @@ const serviceGroups = [
   <section class="bottom-callout">
     <div class="container">
       <div class="callout-box">
-        <span class="sys-tag">// READY TO BUILD?</span>
+        <span class="eyebrow-text">READY TO BUILD?</span>
         <h2>HAVE A COMPLEX CAPABILITY REQUIREMENT?</h2>
         <p>Whether you need a single precision prototype or a fully automated turn-key production cell, our engineering team is ready to assist.</p>
         <a href="/contact" class="btn-primary">START A CONVERSATION</a>
@@ -165,14 +165,15 @@ const serviceGroups = [
     border-bottom: 2px solid var(--brand-blue);
   }
 
-  .sys-tag {
+  .eyebrow-text {
     font-family: var(--font-saira);
-    color: var(--brand-blue);
-    font-size: 0.85rem;
-    font-weight: 700;
+    color: var(--brand-gray);
+    font-size: 0.9rem;
+    font-weight: 600;
     letter-spacing: 2px;
     margin-bottom: 1rem;
     display: block;
+    text-transform: uppercase;
   }
 
   .hero-section h1 {
