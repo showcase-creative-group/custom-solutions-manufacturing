@@ -58,11 +58,11 @@ const industries = [
 
 <style>
   .industries-section {
-    background-color: var(--brand-black); 
+    background-color: var(--bg-dark); 
     color: #ffffff;
     padding: 6rem 2rem;
-    border-top: 1px solid #1f2937;
-    border-bottom: 1px solid #1f2937;
+    border-top: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
   }
 
   .container {
@@ -95,10 +95,9 @@ const industries = [
   }
 
   .industry-card {
-    /* Deep gradient to give the card volume without an image */
-    background: linear-gradient(145deg, #161b22, #0f1115);
-    border: 1px solid #1f2937;
-    border-top: 4px solid #334155; /* Heavy top border as a baseline */
+    background: var(--bg-dark-card);
+    border: 1px solid var(--border-dark);
+    border-top: 4px solid #334155;
     display: flex;
     flex-direction: column;
     border-radius: 6px;
@@ -107,13 +106,12 @@ const industries = [
 
   .industry-card:hover {
     border-color: #334155;
-    border-top-color: var(--brand-blue); /* Illuminates the top edge on hover */
+    border-top-color: var(--brand-blue);
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   }
 
   .card-content {
-    /* Increased padding to compensate for the missing image */
     padding: 3.5rem 2.5rem;
     flex-grow: 1;
     display: flex;
@@ -123,7 +121,7 @@ const industries = [
   .card-content h3 {
     margin: 0 0 1rem 0;
     font-family: var(--font-saira);
-    font-size: 1.75rem; /* Scaled up slightly for emphasis */
+    font-size: 1.75rem;
     font-weight: 700;
     letter-spacing: 1px;
     color: #ffffff;

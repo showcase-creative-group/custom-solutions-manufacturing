@@ -123,17 +123,18 @@ const googleMapsDirectionsUrl = "https://maps.google.com/?q=Custom+Solutions+Man
 
 <style>
   footer {
-    background-color: var(--brand-black);
+    background-color: var(--bg-dark);
     color: #ffffff;
     padding-top: 5rem;
-    border-top: 1px solid #1f2937;
+    border-top: 1px solid var(--border-dark);
     margin-top: auto;
   }
 
+  /* Expanded from 1200px to 1600px to match all homepage components */
   .container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 1.5rem 4rem 1.5rem;
+    padding: 0 2rem 4rem 2rem;
     display: grid;
     grid-template-columns: 1.8fr 0.9fr 1.1fr 1.4fr;
     gap: 3rem;
@@ -148,7 +149,7 @@ const googleMapsDirectionsUrl = "https://maps.google.com/?q=Custom+Solutions+Man
   }
 
   .footer-logo img {
-    height: 70px;
+    height: 65px;
     width: auto;
     filter: brightness(0) invert(1);
   }
@@ -175,8 +176,8 @@ const googleMapsDirectionsUrl = "https://maps.google.com/?q=Custom+Solutions+Man
     text-transform: uppercase;
     letter-spacing: 0.5px;
     color: #94a3b8;
-    background-color: #1e293b;
-    border: 1px solid #334155;
+    background-color: var(--bg-dark-card);
+    border: 1px solid var(--border-dark);
     padding: 0.25rem 0.6rem;
     border-radius: 4px;
   }
@@ -271,7 +272,7 @@ const googleMapsDirectionsUrl = "https://maps.google.com/?q=Custom+Solutions+Man
   .map-wrapper {
     border-radius: 6px;
     overflow: hidden;
-    border: 1px solid #334155;
+    border: 1px solid var(--border-dark);
     margin-bottom: 0.75rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   }
@@ -296,27 +297,28 @@ const googleMapsDirectionsUrl = "https://maps.google.com/?q=Custom+Solutions+Man
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    transition: opacity 0.2s ease;
+    transition: color 0.2s ease;
   }
 
   .directions-btn:hover {
-    opacity: 0.8;
+    color: var(--brand-blue-hover);
     text-decoration: underline;
   }
 
   /* Bottom Bar */
   .bottom-bar {
-    background-color: #0b0f17;
+    background-color: var(--bg-dark-card);
     padding: 1.5rem 0;
     font-size: 0.85rem;
-    color: #64748b;
-    border-top: 1px solid #1e293b;
+    color: var(--brand-gray);
+    border-top: 1px solid var(--border-dark);
   }
 
+  /* Expanded from 1200px to 1600px */
   .bottom-container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;

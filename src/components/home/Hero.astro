@@ -19,7 +19,7 @@
 
 <style>
   .hero-section {
-    background-color: var(--brand-black); 
+    background-color: var(--bg-dark); 
     color: #ffffff;
     
     width: 100%;
@@ -54,8 +54,9 @@
     z-index: 2;
   }
 
+  /* Expanded from 1200px to 1600px to match all homepage grid components */
   .hero-container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     width: 100%;
     position: relative;
@@ -71,7 +72,7 @@
     text-transform: uppercase;
     line-height: 1.1;
     margin-bottom: 1.25rem;
-    max-width: 800px;
+    max-width: 850px; /* Constrained to preserve optimal reading line-length */
     color: #ffffff;
     letter-spacing: -0.5px;
     /* Smooth fade-in animation */
@@ -93,7 +94,7 @@
   p {
     font-size: clamp(1.15rem, 2vw, 1.35rem); 
     font-weight: 500; 
-    max-width: 600px;
+    max-width: 600px; /* Constrained to preserve optimal reading line-length */
     color: rgba(255, 255, 255, 0.95);
     margin: 0;
     line-height: 1.6;

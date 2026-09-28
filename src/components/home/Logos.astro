@@ -44,12 +44,11 @@ const duplicatedLogos = [...logos, ...logos];
 <style>
   .logo-carousel {
     padding: 5rem 0;
-    background-color: #ffffff;
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
+    background-color: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
   }
 
-  /* Updated to match the Saira typography scale */
   .container h2 {
     text-align: center;
     font-family: var(--font-saira);
@@ -64,7 +63,7 @@ const duplicatedLogos = [...logos, ...logos];
   .carousel-wrapper {
     position: relative;
     width: 100%;
-    max-width: 1600px; /* Expanded from 1200px for a wider visual span */
+    max-width: 1600px;
     margin: 0 auto;
     overflow: hidden;
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
@@ -83,7 +82,6 @@ const duplicatedLogos = [...logos, ...logos];
     animation-play-state: paused;
   }
 
-  /* Increased bounding box for each logo for better visibility on wide screens */
   .logo-slide {
     display: flex;
     align-items: center;
@@ -96,13 +94,12 @@ const duplicatedLogos = [...logos, ...logos];
     width: 100%;
     height: 100%;
     object-fit: contain;
-    display: block; /* Removes the invisible baseline gap */
+    display: block;
     opacity: 0.6;
     filter: grayscale(100%);
     transition: all 0.3s ease;
   }
 
-  /* Force the white Kindeva logo to render dark/black */
   .logo-slide img.kindeva {
     filter: brightness(0);
     opacity: 0.6;
@@ -115,7 +112,7 @@ const duplicatedLogos = [...logos, ...logos];
 
   .logo-slide img.kindeva:hover {
     opacity: 1;
-    filter: brightness(0); /* Keeps it black on hover so it stays visible on white background */
+    filter: brightness(0);
   }
 
   @keyframes scroll {

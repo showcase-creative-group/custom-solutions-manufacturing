@@ -27,13 +27,12 @@ const stats = [
 
 <style>
   .big-stats {
-    background-color: #ffffff; 
+    background-color: var(--bg-light-alt); 
     padding: 5rem 2rem;
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
   }
 
-  /* Expanded from 1200px to 1600px for consistency */
   .container {
     max-width: 1600px;
     margin: 0 auto;
@@ -53,7 +52,6 @@ const stats = [
     justify-content: center;
   }
 
-  /* Scaled up and made responsive to fill the wider container */
   .stat-value {
     font-family: var(--font-saira);
     font-size: clamp(3rem, 6vw, 4.5rem);
@@ -95,7 +93,7 @@ const stats = [
   const counters = document.querySelectorAll('.counter');
   const duration = 2000; 
 
-  const animateCounters = (entries, observer) => {
+  const animateCounters = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const counter = entry.target as HTMLElement;

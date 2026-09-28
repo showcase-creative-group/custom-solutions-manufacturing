@@ -40,15 +40,26 @@ const { title } = Astro.props;
     --font-noto: 'Noto Sans', sans-serif;
     --font-saira: 'Saira', sans-serif;
     
-    /* Brand Colors */
+    /* Brand Core */
     --brand-blue: #2C68A9;
-    --brand-gray: #9B9B9B;
+    --brand-blue-hover: #1e4b7a;
     --brand-black: #000000;
+    --brand-gray: #718096; /* Darkened from #9B9B9B for WCAG AA compliance */
+
+    /* Surfaces & Backgrounds */
+    --bg-light: #ffffff;
+    --bg-light-alt: #f8fafc;
+    --bg-dark: #000000;
+    --bg-dark-card: #161b22;
+
+    /* Borders */
+    --border-light: #e2e8f0;
+    --border-dark: #1f2937;
   }
   
   html {
     font-family: var(--font-noto);
-    background-color: #ffffff;
+    background-color: var(--bg-light);
     color: var(--brand-black);
   }
 

@@ -1,29 +1,43 @@
 ---
-// 1. Import the file directly (No Astro Image component)
 import Logo from "../../assets/custom_solutions_manufacturing_logo.png";
 
 const pathname = Astro.url.pathname;
 const isHome = pathname === '/' || pathname === '/index.html';
 
-const isActive = (path) => {
+const isActive = (path: string) => {
   return (pathname === path || pathname === path + '/') ? "active" : "";
 };
 ---
+
 <header id="main-header" class={isHome ? "is-home top-of-page" : ""}>
   <nav>
     <div class="logo">
-      <a href="/">
-        <!-- 2. Use Logo.src in a standard img tag to bypass optimization -->
+      <a href="/" aria-label="Home">
         <img src={Logo.src} alt="CSM Logo" />
       </a>
     </div>
-    
-    <div class="nav-actions">
+
+    <!-- Mobile Hamburger Toggle Button -->
+    <button 
+      id="menu-toggle" 
+      class="hamburger" 
+      aria-label="Toggle Navigation Menu" 
+      aria-expanded="false" 
+      aria-controls="nav-actions"
+    >
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- Nav Actions Container -->
+    <div id="nav-actions" class="nav-actions">
       <ul class="nav-links">
         <li><a href="/what-we-do" class={isActive('/what-we-do')}>What We Do</a></li>
         <li><a href="/industries" class={isActive('/industries')}>Industries</a></li>
         <li><a href="/projects" class={isActive('/projects')}>Projects</a></li>
       </ul>
+      
       <a href="/contact" class="nav-cta">Get a Quote</a>
     </div>
   </nav>
@@ -31,9 +45,9 @@ const isActive = (path) => {
 
 <style>
   header {
-    background-color: #ffffff;
+    background-color: var(--bg-light);
     padding: 1rem 2rem;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--border-light);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -57,10 +71,11 @@ const isActive = (path) => {
 
   nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
+    position: relative;
+    gap: 3.5rem;
   }
 
   .logo a {
@@ -70,7 +85,6 @@ const isActive = (path) => {
   }
 
   .logo img {
-    /* 3. Increased from 40px. Adjust this if it's still too small or big */
     height: 50px; 
     width: auto;
     transition: filter 0.3s ease;
@@ -80,16 +94,57 @@ const isActive = (path) => {
     filter: brightness(0) invert(1);
   }
 
+  /* Hamburger Icon Styling */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    margin-left: auto;
+  }
+
+  .hamburger .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--brand-black);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  header.is-home.top-of-page .hamburger .bar {
+    background-color: #ffffff;
+  }
+
+  .hamburger.is-active .bar:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+  }
+
+  .hamburger.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.is-active .bar:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+  }
+
+  /* Desktop Nav Actions Container */
   .nav-actions {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    justify-content: space-between;
+    flex-grow: 1;
   }
 
   .nav-links {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
     margin: 0;
     padding: 0;
   }
@@ -100,7 +155,7 @@ const isActive = (path) => {
     color: var(--brand-black);
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     letter-spacing: 0.5px;
     transition: color 0.3s ease;
   }
@@ -118,39 +173,124 @@ const isActive = (path) => {
     font-family: var(--font-saira);
     background-color: var(--brand-blue);
     color: #ffffff;
-    padding: 0.65rem 1.5rem;
+    padding: 0.75rem 1.65rem;
     text-decoration: none;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 1rem;
     letter-spacing: 0.5px;
     border-radius: 4px;
-    transition: opacity 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     white-space: nowrap;
+    display: inline-block;
   }
 
   .nav-cta:hover {
-    opacity: 0.85;
+    background-color: var(--brand-blue-hover);
+    transform: translateY(-1px);
+  }
+
+  /* ------------------------------------------------------------- */
+  /* Mobile Layout (Breakpoint at 900px)                           */
+  /* ------------------------------------------------------------- */
+  @media (max-width: 900px) {
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-actions {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: var(--bg-light);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 1000;
+    }
+
+    header.is-home.top-of-page .nav-actions {
+      background-color: #0f1115;
+    }
+
+    .nav-actions.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .nav-links a {
+      font-size: 1.35rem;
+      color: var(--brand-black);
+    }
+
+    header.is-home.top-of-page .nav-actions .nav-links a {
+      color: #ffffff;
+    }
+
+    .nav-cta {
+      font-size: 1.15rem;
+      padding: 0.85rem 2rem;
+    }
   }
 </style>
 
 <script>
   let lastScrollY = window.scrollY;
   const header = document.getElementById('main-header');
+  const menuToggle = document.getElementById('menu-toggle');
+  const navActions = document.getElementById('nav-actions');
+
+  const toggleMenu = () => {
+    const isOpen = navActions?.classList.contains('is-open');
+    
+    navActions?.classList.toggle('is-open');
+    menuToggle?.classList.toggle('is-active');
+    menuToggle?.setAttribute('aria-expanded', (!isOpen).toString());
+
+    if (!isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  };
+
+  menuToggle?.addEventListener('click', toggleMenu);
+
+  navActions?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (navActions.classList.contains('is-open')) {
+        toggleMenu();
+      }
+    });
+  });
 
   window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
     
-    if (currentScrollY > 50) {
-      header.classList.remove('top-of-page');
-    } else {
-      header.classList.add('top-of-page');
-    }
-    
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      header.classList.add('nav-hidden');
-    } else {
-      header.classList.remove('nav-hidden');
+    if (header) {
+      if (currentScrollY > 50) {
+        header.classList.remove('top-of-page');
+      } else {
+        header.classList.add('top-of-page');
+      }
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 100 && !navActions?.classList.contains('is-open')) {
+        header.classList.add('nav-hidden');
+      } else {
+        header.classList.remove('nav-hidden');
+      }
     }
     
     lastScrollY = currentScrollY;
