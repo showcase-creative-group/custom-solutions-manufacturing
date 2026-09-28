@@ -17,56 +17,64 @@ const industrySectors = [
     code: "SEC-01",
     title: "Food",
     img: foodIcon.src,
-    spec: "FDA / USDA SANITARY GRADE"
+    spec: "FDA / USDA SANITARY GRADE",
+    desc: "Engineered components for food processing and packaging, utilizing sanitary designs and food-safe materials to ensure strict compliance."
   },
   {
     id: "robotics",
     code: "SEC-02",
     title: "Robotics",
     img: roboticsIcon.src,
-    spec: "HIGH-SPEED DYNAMIC TOLERANCE"
+    spec: "HIGH-SPEED DYNAMIC TOLERANCE",
+    desc: "High-precision parts and complex assemblies for dynamic robotic systems, ensuring minimal tolerance drift and maximum operational uptime."
   },
   {
     id: "defense",
     code: "SEC-03",
     title: "Defense",
     img: defenseIcon.src,
-    spec: "ITAR REGISTERED // CMMC COMPLIANT"
+    spec: "ITAR REGISTERED // CMMC COMPLIANT",
+    desc: "Ruggedized hardware and mission-critical components built to exact military specifications for modern aerospace and defense applications."
   },
   {
     id: "data-centers",
     code: "SEC-04",
     title: "Data Centers",
     img: dataCenterIcon.src,
-    spec: "HIGH-DENSITY THERMAL SUPPORT"
+    spec: "HIGH-DENSITY THERMAL SUPPORT",
+    desc: "Advanced thermal management structures and precision racking systems designed to support high-density compute environments."
   },
   {
     id: "construction",
     code: "SEC-05",
     title: "Construction",
     img: constructionIcon.src,
-    spec: "AWS D1.1 CERTIFIED WELDING"
+    spec: "AWS D1.1 CERTIFIED WELDING",
+    desc: "Heavy-duty fabricated structures and certified welded assemblies capable of withstanding extreme load and infrastructure demands."
   },
   {
     id: "medical",
     code: "SEC-06",
     title: "Medical",
     img: medicalIcon.src,
-    spec: "CLEANROOM ISO CLASS 7 READY"
+    spec: "CLEANROOM ISO CLASS 7 READY",
+    desc: "Biocompatible materials and precision-machined devices manufactured for surgical equipment and life-saving diagnostic systems."
   },
   {
     id: "technology",
     code: "SEC-07",
     title: "Technology",
     img: technologyIcon.src,
-    spec: "MICRON-LEVEL TOLERANCES"
+    spec: "MICRON-LEVEL TOLERANCES",
+    desc: "Micron-level precision components for semiconductors, consumer electronics, and specialized hardware testing apparatuses."
   },
   {
     id: "automotive",
     code: "SEC-08",
     title: "Automotive",
     img: automotiveIcon.src,
-    spec: "CONTINUOUS UPTIME TOOLING"
+    spec: "CONTINUOUS UPTIME TOOLING",
+    desc: "Custom tooling, jigs, and durable fixtures built to sustain the rapid cycles and continuous uptime of modern production lines."
   }
 ];
 ---
@@ -99,6 +107,7 @@ const industrySectors = [
               </div>
               
               <h2>{sector.title}</h2>
+              <p class="sector-desc">{sector.desc}</p>
 
               <a href="/contact" class="tactical-btn">
                 <span>INITIATE {sector.title.toUpperCase()} PROJECT</span>
@@ -208,13 +217,9 @@ const industrySectors = [
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 3rem; /* Added custom padding */
-    box-sizing: border-box; /* Ensures padding scales content inward */
+    padding: 3rem;
+    box-sizing: border-box;
     display: block;
-    transition: transform 0.4s ease;
-  }
-
-  .sector-card:hover .visual-frame img {
     transform: scale(1.05);
   }
 
@@ -261,8 +266,15 @@ const industrySectors = [
     font-weight: 800;
     color: var(--brand-black);
     text-transform: uppercase;
-    margin: 0 0 2rem 0;
+    margin: 0 0 1rem 0;
     letter-spacing: 0.5px;
+  }
+
+  .sector-desc {
+    color: #4a4a4a;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 2rem 0;
   }
 
   .tactical-btn {
@@ -281,6 +293,7 @@ const industrySectors = [
     border-radius: 2px;
     transition: background-color 0.2s ease;
     margin-top: auto;
+    box-sizing: border-box;
   }
 
   .tactical-btn:hover {
@@ -347,9 +360,71 @@ const industrySectors = [
     background-color: var(--brand-blue-hover);
   }
 
-  @media (max-width: 992px) {
+  @media (max-width: 900px) {
     .sectors-grid {
       grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .hero-section {
+      padding: 6rem 1.5rem 3rem 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+    }
+
+    .showcase-section {
+      padding: 3rem 1.5rem;
+    }
+
+    .visual-frame {
+      height: 200px;
+    }
+
+    .visual-frame img {
+      padding: 1.5rem;
+    }
+
+    .detail-frame {
+      padding: 1.5rem;
+    }
+
+    .card-meta {
+      display: none;
+    }
+
+    .detail-frame h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .sector-desc {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tactical-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .bottom-callout {
+      padding: 4rem 1.5rem;
+    }
+
+    .callout-box {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .callout-box p {
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      width: 100%;
+      box-sizing: border-box;
     }
   }
 </style>
