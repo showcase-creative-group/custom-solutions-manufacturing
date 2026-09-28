@@ -1,62 +1,63 @@
 ---
-// src/pages/industries.astro
 import Layout from '../layouts/Layout.astro';
+
+const R2_BASE = "https://pub-6b61e64b6d9145a3b0f5e845de93fbb9.r2.dev/Industries";
 
 const industrySectors = [
   {
     id: "food",
     code: "SEC-01",
     title: "Food",
-    img: "/industries/Food_Icon.png",
+    img: `${R2_BASE}/Food_Icon.png`,
     spec: "FDA / USDA SANITARY GRADE"
   },
   {
     id: "robotics",
     code: "SEC-02",
     title: "Robotics",
-    img: "/industries/Robotics_Icon.png",
+    img: `${R2_BASE}/Robotics_Icon.png`,
     spec: "HIGH-SPEED DYNAMIC TOLERANCE"
   },
   {
     id: "defense",
     code: "SEC-03",
     title: "Defense",
-    img: "/industries/Defense_Icon.png",
+    img: `${R2_BASE}/Defense_Icon.png`,
     spec: "ITAR REGISTERED // CMMC COMPLIANT"
   },
   {
     id: "data-centers",
     code: "SEC-04",
     title: "Data Centers",
-    img: "/industries/Data_Center_Icon.png",
+    img: `${R2_BASE}/Data_Center_Icon.png`,
     spec: "HIGH-DENSITY THERMAL SUPPORT"
   },
   {
     id: "construction",
     code: "SEC-05",
     title: "Construction",
-    img: "/industries/Construction_Icon.png",
+    img: `${R2_BASE}/Construction_Icon.png`,
     spec: "AWS D1.1 CERTIFIED WELDING"
   },
   {
     id: "medical",
     code: "SEC-06",
     title: "Medical",
-    img: "/industries/Medical_Icon.png",
+    img: `${R2_BASE}/Medical_Icon.png`,
     spec: "CLEANROOM ISO CLASS 7 READY"
   },
   {
     id: "technology",
     code: "SEC-07",
     title: "Technology",
-    img: "/industries/Technology_Icon.png",
+    img: `${R2_BASE}/Technology_Icon.png`,
     spec: "MICRON-LEVEL TOLERANCES"
   },
   {
     id: "automotive",
     code: "SEC-08",
     title: "Automotive",
-    img: "/industries/Automotive_Icon.png",
+    img: `${R2_BASE}/Automotive_Icon.png`,
     spec: "CONTINUOUS UPTIME TOOLING"
   }
 ];
@@ -65,7 +66,7 @@ const industrySectors = [
 <Layout title="Industries | Custom Solutions Manufacturing">
   <section class="hero-section">
     <div class="container">
-      <span class="sys-tag">[ SECTOR CAPABILITIES ]</span>
+      <span class="eyebrow-text">SECTOR CAPABILITIES</span>
       <h1>SECTOR-SPECIFIC<br/><span class="text-blue">HARDWARE ENGINEERING</span></h1>
       <p class="hero-desc">
         Precision machining, structural fabrication, and automated turnkey systems built to exceed extreme operational criteria.
@@ -77,14 +78,14 @@ const industrySectors = [
     <div class="container">
       <div class="sectors-grid">
         {industrySectors.map((sector) => (
-          <div id={sector.id} class="sector-card">
+          <article id={sector.id} class="sector-card">
             
             <div class="visual-frame">
               <div class="corner-cross top-left">+</div>
               <div class="corner-cross top-right">+</div>
               <div class="corner-cross bottom-left">+</div>
               <div class="corner-cross bottom-right">+</div>
-              <img src={sector.img} alt={sector.title} width="400" height="400" />
+              <img src={sector.img} alt={sector.title} width="400" height="400" loading="lazy" />
             </div>
 
             <div class="detail-frame">
@@ -101,7 +102,7 @@ const industrySectors = [
               </a>
             </div>
 
-          </div>
+          </article>
         ))}
       </div>
     </div>
@@ -110,7 +111,7 @@ const industrySectors = [
   <section class="bottom-callout">
     <div class="container">
       <div class="callout-box">
-        <span class="sys-tag">// CUSTOM HARDWARE REQUIREMENTS</span>
+        <span class="eyebrow-text">CUSTOM HARDWARE REQUIREMENTS</span>
         <h2>NEED A CUSTOM ENGINEERING SOLUTION?</h2>
         <p>Our multi-axis CNC cells, certified welding engineering, and automation teams adapt to non-standard technical criteria.</p>
         <a href="/contact" class="btn-primary">TALK WITH OUR ENGINEERS</a>
@@ -120,28 +121,28 @@ const industrySectors = [
 </Layout>
 
 <style>
-  /* Dark Hero Section */
   .hero-section {
-    background-color: var(--brand-black);
-    color: #ffffff;
-    padding: 10rem 2rem 5rem 2rem;
+    background-color: var(--bg-dark);
+    color: var(--bg-light);
+    padding: 10rem 2rem 4rem 2rem;
     position: relative;
-    /* Removed the border-bottom here */
+    border-bottom: 2px solid var(--brand-blue);
   }
 
-  .sys-tag {
+  .eyebrow-text {
     font-family: var(--font-saira);
-    color: var(--brand-blue);
-    font-size: 0.85rem;
-    font-weight: 700;
+    color: var(--brand-gray);
+    font-size: 0.9rem;
+    font-weight: 600;
     letter-spacing: 2px;
     margin-bottom: 1rem;
     display: block;
+    text-transform: uppercase;
   }
 
   .hero-section h1 {
     font-family: var(--font-saira);
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(3rem, 6vw, 4.5rem);
     font-weight: 800;
     line-height: 1.05;
     text-transform: uppercase;
@@ -161,18 +162,17 @@ const industrySectors = [
     margin: 0;
   }
 
-  /* Main Light Showcase */
+  .container {
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
   .showcase-section {
-    background-color: #f8fafc;
+    background-color: var(--bg-light-alt);
     padding: 5rem 2rem;
   }
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  /* 2x4 Grid Layout */
   .sectors-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -180,41 +180,66 @@ const industrySectors = [
   }
 
   .sector-card {
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 4px;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-light);
+    border-radius: 2px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
     display: flex;
     flex-direction: column;
   }
 
-  /* Dark Image Frame on Top */
   .visual-frame {
     position: relative;
     background-color: var(--brand-black);
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--border-light);
+    height: 320px;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 3rem 2rem;
-    overflow: hidden;
+    padding: 1.5rem;
   }
 
   .visual-frame img {
-    width: 100%;
+    max-width: 85%;
+    max-height: 85%;
+    width: auto;
     height: auto;
-    max-width: 220px;
-    transform: scale(1.2);
+    object-fit: contain;
     display: block;
+    filter: brightness(0.85) contrast(1.1);
+    transition: transform 0.4s ease, filter 0.4s ease;
+    z-index: 0;
+  }
+
+  .visual-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.65) 100%);
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .sector-card:hover .visual-frame img {
+    transform: scale(1.08);
+    filter: brightness(1) contrast(1.15);
+  }
+
+  .sector-card:hover .visual-frame::after {
+    opacity: 0.5;
   }
 
   .corner-cross {
     position: absolute;
     font-family: var(--font-saira);
-    font-size: 0.75rem;
-    color: var(--brand-gray);
-    opacity: 0.5;
+    font-size: 0.85rem;
+    color: var(--brand-blue);
+    font-weight: bold;
+    z-index: 3;
+    pointer-events: none;
   }
 
   .top-left { top: 8px; left: 10px; }
@@ -222,7 +247,6 @@ const industrySectors = [
   .bottom-left { bottom: 8px; left: 10px; }
   .bottom-right { bottom: 8px; right: 10px; }
 
-  /* Detail Frame Below Image */
   .detail-frame {
     padding: 2rem;
     display: flex;
@@ -236,24 +260,28 @@ const industrySectors = [
     align-items: center;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #f1f5f9;
+    border-bottom: 1px solid var(--border-light);
   }
 
   .code-badge {
     font-family: var(--font-saira);
     font-size: 0.85rem;
-    color: var(--brand-blue);
+    color: var(--bg-light);
+    background-color: var(--brand-black);
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
     font-weight: 800;
     letter-spacing: 1px;
   }
 
   .spec-tag {
     font-family: var(--font-saira);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 700;
-    color: var(--brand-gray);
+    color: var(--brand-blue);
     letter-spacing: 1px;
     text-align: right;
+    text-transform: uppercase;
   }
 
   .detail-frame h2 {
@@ -266,7 +294,6 @@ const industrySectors = [
     letter-spacing: 0.5px;
   }
 
-  /* Tactical Button */
   .tactical-btn {
     font-family: var(--font-saira);
     display: inline-flex;
@@ -274,41 +301,50 @@ const industrySectors = [
     align-items: center;
     gap: 1rem;
     background-color: var(--brand-blue);
-    color: #ffffff;
-    padding: 0.85rem 1.5rem;
+    color: var(--bg-light);
+    padding: 0.9rem 1.5rem;
     text-decoration: none;
     font-weight: 700;
     font-size: 0.85rem;
     letter-spacing: 1px;
     border-radius: 2px;
-    transition: opacity 0.2s ease;
-    margin-top: auto; /* Pushes button to the bottom of the card */
+    transition: background-color 0.2s ease;
+    margin-top: auto;
   }
 
   .tactical-btn:hover {
-    opacity: 0.85;
+    background-color: var(--brand-blue-hover);
   }
 
-  /* Bottom Dark Callout Banner */
+  .btn-arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+
+  .tactical-btn:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
   .bottom-callout {
+    position: relative;
+    z-index: 100;
     background-color: var(--brand-black);
     padding: 6rem 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--border-dark);
   }
 
   .callout-box {
-    background-color: var(--brand-black);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-left: 4px solid var(--brand-blue);
+    background-color: var(--bg-dark-card);
+    border: 1px solid var(--border-dark);
     padding: 3.5rem 2.5rem;
     text-align: center;
   }
 
   .callout-box h2 {
     font-family: var(--font-saira);
-    font-size: 2.25rem;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
     font-weight: 800;
-    color: #ffffff;
+    color: var(--bg-light);
     text-transform: uppercase;
     margin: 0.5rem 0 1rem 0;
   }
@@ -325,7 +361,7 @@ const industrySectors = [
     font-family: var(--font-saira);
     display: inline-block;
     background-color: var(--brand-blue);
-    color: #ffffff;
+    color: var(--bg-light);
     padding: 0.9rem 2.25rem;
     text-decoration: none;
     font-weight: 700;
@@ -333,14 +369,13 @@ const industrySectors = [
     font-size: 0.9rem;
     letter-spacing: 1px;
     border-radius: 2px;
-    transition: opacity 0.2s ease;
+    transition: background-color 0.2s ease;
   }
 
   .btn-primary:hover {
-    opacity: 0.85;
+    background-color: var(--brand-blue-hover);
   }
 
-  /* Responsive Adjustments */
   @media (max-width: 992px) {
     .sectors-grid {
       grid-template-columns: 1fr;
