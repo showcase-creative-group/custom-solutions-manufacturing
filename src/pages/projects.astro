@@ -189,11 +189,7 @@ const projects = [
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease;
-  }
-
-  .project-card:hover .visual-frame img {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Permanent zoom applied */
   }
 
   .corner-cross {
@@ -294,13 +290,48 @@ const projects = [
   @media (max-width: 900px) {
     .projects-grid {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 1.5rem;
+    }
+
+    .hero-section {
+      padding: 6rem 1.5rem 3rem 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+    }
+
+    .showcase-section {
+      padding: 3rem 1.5rem;
     }
 
     .overlay-content {
-      opacity: 1;
-      background-color: rgba(0, 0, 0, 0.7);
+      opacity: 1; /* Permanently visible on mobile */
+      background-color: rgba(0, 0, 0, 0.75);
       padding: 1.5rem;
+    }
+
+    .overlay-content h2 {
+      font-size: 1.1rem;
+    }
+
+    .bottom-callout {
+      padding: 4rem 1.5rem;
+    }
+
+    .callout-box {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .callout-box p {
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
     }
   }
 </style>

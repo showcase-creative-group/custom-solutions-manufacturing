@@ -391,6 +391,7 @@ const serviceGroups = [
     letter-spacing: 1px;
     border-radius: 2px;
     transition: background-color 0.2s ease;
+    box-sizing: border-box;
   }
 
   .tactical-btn:hover {
@@ -459,13 +460,21 @@ const serviceGroups = [
   }
 
   @media (max-width: 900px) {
+    .hero-section {
+      padding: 6rem 1.5rem 3rem 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+    }
+
     .capability-row {
-      padding: 3.5rem 1.5rem;
+      padding: 4rem 1.5rem;
     }
 
     .split-grid, .split-grid.reverse {
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 2.5rem;
     }
     
     .split-grid.reverse .content-col {
@@ -474,6 +483,47 @@ const serviceGroups = [
     
     .split-grid.reverse .image-col {
       order: 2;
+    }
+
+    .title-block {
+      display: none;
+    }
+
+    .content-col h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .description {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .specs-list {
+      grid-template-columns: 1fr;
+    }
+
+    .tactical-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .bottom-callout {
+      padding: 4rem 1.5rem;
+    }
+
+    .callout-box {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .callout-box p {
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      width: 100%;
+      box-sizing: border-box;
     }
   }
 </style>
