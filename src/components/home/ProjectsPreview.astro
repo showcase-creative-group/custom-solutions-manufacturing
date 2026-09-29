@@ -183,20 +183,29 @@
   }
 
   @media (max-width: 900px) {
+    .projects-preview {
+      padding: 4rem 1.5rem;
+    }
     .header-content {
       flex-direction: column;
       align-items: flex-start;
       gap: 1.5rem;
+      margin-bottom: 2rem;
     }
-
     .projects-grid {
       grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
-
     .overlay-content {
       opacity: 1;
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(0, 0, 0, 0.75);
       padding: 1.5rem;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
     }
   }
 </style>

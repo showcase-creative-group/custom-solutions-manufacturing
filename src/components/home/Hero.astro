@@ -12,7 +12,7 @@
   <div class="hero-overlay"></div>
 
   <div class="hero-container">
-    <h1>Turn-Key, Specialized<br>Manufacturing</h1>
+    <h1>TURN-KEY<br/>SPECIALIZED<br/>MANUFACTURING</h1>
     <p>Discover precision machining and custom welding to serve your needs.</p>
   </div>
 </section>
@@ -54,14 +54,12 @@
     z-index: 2;
   }
 
-  /* Expanded from 1200px to 1600px to match all homepage grid components */
   .hero-container {
     max-width: 1600px;
     margin: 0 auto;
     width: 100%;
     position: relative;
     z-index: 3;
-    /* Layered shadows for better separation from the video */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 10px 20px rgba(0, 0, 0, 0.4);
   }
 
@@ -71,35 +69,32 @@
     font-weight: 800;
     text-transform: uppercase;
     line-height: 1.1;
-    margin-bottom: 1.25rem;
-    max-width: 850px; /* Constrained to preserve optimal reading line-length */
+    margin-bottom: 2rem; /* Adjusted for better spacing to the box */
+    max-width: 850px; 
     color: #ffffff;
     letter-spacing: -0.5px;
-    /* Smooth fade-in animation */
     opacity: 0;
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  /* The Brand Accent Line */
-  h1::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 5px;
-    background-color: var(--brand-blue);
-    margin-top: 1.5rem;
-    border-radius: 2px;
   }
 
   p {
     font-size: clamp(1.15rem, 2vw, 1.35rem); 
     font-weight: 500; 
-    max-width: 600px; /* Constrained to preserve optimal reading line-length */
+    max-width: 600px; 
     color: rgba(255, 255, 255, 0.95);
     margin: 0;
     line-height: 1.6;
     letter-spacing: 0.3px; 
-    /* Staggered animation delay */
+    
+    /* Box Styling */
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-left: 4px solid var(--brand-blue);
+    padding: 1.5rem 2rem;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    
     opacity: 0;
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
   }
@@ -116,10 +111,14 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .hero-section {
-      padding-top: 100px;
+      padding: 100px 1.5rem 4rem 1.5rem;
       min-height: 80vh;
+    }
+    
+    p {
+      padding: 1.25rem 1.5rem;
     }
   }
 </style>
