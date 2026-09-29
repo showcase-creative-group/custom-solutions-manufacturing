@@ -4,7 +4,6 @@ import Logo from "../../assets/custom-solutions-manufacturing-logo.png";
 const currentYear = new Date().getFullYear();
 
 const googleMapsEmbedUrl = "https://maps.google.com/maps?q=Custom+Solutions+Manufacturing,+14022+Lincoln+St+NE,+Ham+Lake,+MN+55304&t=&z=14&ie=UTF8&iwloc=&output=embed";
-const googleMapsDirectionsUrl = "https://www.google.com/maps/place/Custom+Solutions+Manufacturing/@45.2250489,-93.2414634,614m/data=!3m2!1e3!4b1!4m6!3m5!1s0x52b33fbbc98260d1:0x13c36b795b246a02!8m2!3d45.2250452!4d-93.2388885!16s%2Fg%2F1trttzgs?hl=en-US";
 ---
 
 <footer>
@@ -80,19 +79,6 @@ const googleMapsDirectionsUrl = "https://www.google.com/maps/place/Custom+Soluti
           title="Custom Solutions Manufacturing Location Map"
         ></iframe>
       </div>
-
-      <a 
-        href={googleMapsDirectionsUrl} 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="directions-btn"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/>
-          <circle cx="12" cy="10" r="3"/>
-        </svg>
-        Get Directions
-      </a>
     </div>
 
   </div>
@@ -250,25 +236,6 @@ const googleMapsDirectionsUrl = "https://www.google.com/maps/place/Custom+Soluti
 
   .map-wrapper iframe {
     display: block;
-  }
-
-  .directions-btn {
-    font-family: var(--font-saira);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    color: var(--brand-blue);
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: color 0.2s ease;
-  }
-
-  .directions-btn:hover {
-    color: var(--brand-blue-hover);
-    text-decoration: underline;
   }
 
   .bottom-bar {

@@ -73,7 +73,7 @@ const serviceGroups = [
     image: "https://placehold.co/800x600/050505/ffffff?text=Specialized+Services"
   },
   {
-    id: "machine-services",
+    id: "machine",
     code: "CAP-06",
     title: "Machine Services",
     tagline: "Retrofits, Rebuilds & Fluid Power",
@@ -156,6 +156,28 @@ const serviceGroups = [
   </section>
 </Layout>
 
+<script>
+  function scrollToHash() {
+    const hash = window.location.hash;
+    if (hash) {
+      const target = document.querySelector(hash);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }
+
+  // Handles same-page footer link clicks (Scenario 1)
+  window.addEventListener('hashchange', scrollToHash);
+
+  // Handles incoming navigation from other pages (Scenario 2)
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.location.hash) {
+      setTimeout(scrollToHash, 100);
+    }
+  });
+</script>
+
 <style>
   .hero-section {
     background-color: var(--bg-dark);
@@ -211,6 +233,7 @@ const serviceGroups = [
   .capability-row {
     padding: 6rem 2rem;
     overflow: hidden;
+    scroll-margin-top: 0px; 
   }
 
   .bg-white {
@@ -474,5 +497,11 @@ const serviceGroups = [
     .split-grid.reverse .image-col {
       order: 2;
     }
+  }
+</style>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
   }
 </style>
