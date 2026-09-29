@@ -3,17 +3,23 @@
 ---
 
 <section class="hero-section">
-  <!-- Cloudflare R2 Video Background -->
   <video class="hero-video" autoplay loop muted playsinline>
     <source src="https://pub-6b61e64b6d9145a3b0f5e845de93fbb9.r2.dev/Home/csm_hero_manufacturing_portfolio_for_web.mp4" type="video/mp4" />
   </video>
   
-  <!-- Lighter Gradient Overlay -->
   <div class="hero-overlay"></div>
+  <div class="video-dot-matrix"></div>
 
   <div class="hero-container">
-    <h1>TURN-KEY<br/>SPECIALIZED<br/>MANUFACTURING</h1>
-    <p>Discover precision machining and custom welding to serve your needs.</p>
+    <div class="hud-frame">
+      <div class="hud-bracket top-left"></div>
+      <div class="hud-bracket top-right"></div>
+      <div class="hud-bracket bottom-left"></div>
+      <div class="hud-bracket bottom-right"></div>
+
+      <h1>TURN-KEY<br/>SPECIALIZED<br/>MANUFACTURING</h1>
+      <p>Discover precision machining and custom welding to serve your needs.</p>
+    </div>
   </div>
 </section>
 
@@ -21,14 +27,11 @@
   .hero-section {
     background-color: var(--bg-dark); 
     color: #ffffff;
-    
     width: 100%;
     min-height: 100vh;
     box-sizing: border-box;
-    
     display: flex;
     align-items: center;
-    
     padding: 120px 2rem 5rem 2rem;
     position: relative;
     overflow: hidden;
@@ -50,8 +53,19 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
     z-index: 2;
+  }
+
+  .video-dot-matrix {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
+    z-index: 3;
   }
 
   .hero-container {
@@ -59,22 +73,40 @@
     margin: 0 auto;
     width: 100%;
     position: relative;
-    z-index: 3;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 10px 20px rgba(0, 0, 0, 0.4);
+    z-index: 4;
   }
+
+  .hud-frame {
+    position: relative;
+    padding: 3rem;
+    max-width: 850px;
+    opacity: 0;
+    animation: hudFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .hud-bracket {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-color: var(--brand-blue);
+    border-style: solid;
+  }
+
+  .top-left { top: 0; left: 0; border-width: 3px 0 0 3px; }
+  .top-right { top: 0; right: 0; border-width: 3px 3px 0 0; }
+  .bottom-left { bottom: 0; left: 0; border-width: 0 0 3px 3px; }
+  .bottom-right { bottom: 0; right: 0; border-width: 0 3px 3px 0; }
 
   h1 {
     font-family: var(--font-saira);
-    font-size: clamp(2.5rem, 5vw, 4.5rem); 
+    font-size: clamp(3rem, 6vw, 5rem); 
     font-weight: 800;
     text-transform: uppercase;
-    line-height: 1.1;
-    margin-bottom: 2rem; /* Adjusted for better spacing to the box */
-    max-width: 850px; 
+    line-height: 1.05;
+    margin: 0 0 1.5rem 0;
     color: #ffffff;
-    letter-spacing: -0.5px;
-    opacity: 0;
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    letter-spacing: -1px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
   }
 
   p {
@@ -82,32 +114,20 @@
     font-weight: 500; 
     max-width: 600px; 
     color: rgba(255, 255, 255, 0.95);
-    margin: 0;
     line-height: 1.6;
     letter-spacing: 0.3px; 
-    
-    /* Box Styling */
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-left: 4px solid var(--brand-blue);
-    padding: 1.5rem 2rem;
-    border-radius: 0 4px 4px 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    
-    opacity: 0;
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
   }
 
-  /* Animation Keyframes */
-  @keyframes fadeInUp {
+  @keyframes hudFadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: scale(0.98) translateY(10px);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: scale(1) translateY(0);
     }
   }
 
@@ -116,9 +136,14 @@
       padding: 100px 1.5rem 4rem 1.5rem;
       min-height: 80vh;
     }
-    
-    p {
-      padding: 1.25rem 1.5rem;
+
+    .hud-frame {
+      padding: 2rem 1.5rem;
+    }
+
+    .hud-bracket {
+      width: 25px;
+      height: 25px;
     }
   }
 </style>
