@@ -156,28 +156,6 @@ const serviceGroups = [
   </section>
 </Layout>
 
-<script>
-  function scrollToHash() {
-    const hash = window.location.hash;
-    if (hash) {
-      const target = document.querySelector(hash);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  }
-
-  // Handles same-page footer link clicks (Scenario 1)
-  window.addEventListener('hashchange', scrollToHash);
-
-  // Handles incoming navigation from other pages (Scenario 2)
-  window.addEventListener('DOMContentLoaded', () => {
-    if (window.location.hash) {
-      setTimeout(scrollToHash, 100);
-    }
-  });
-</script>
-
 <style>
   .hero-section {
     background-color: var(--bg-dark);
