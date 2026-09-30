@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import heroPattern from '../assets/hero-pattern.svg';
+
 import technologyIcon from '../assets/industries/Industries-Technology-Icon.svg';
 import roboticsIcon from '../assets/industries/Industries-Robotics-Icon.svg';
 import medicalIcon from '../assets/industries/Industries-Medical-Icon.svg';
@@ -81,7 +83,9 @@ const industrySectors = [
 
 <Layout title="Industries | Custom Solutions Manufacturing">
   <section class="hero-section">
-    <div class="container">
+    <div class="hero-bg-pattern" style={`--pattern-bg: url('${heroPattern.src}')`}></div>
+
+    <div class="container hero-content">
       <span class="eyebrow-text">SECTOR CAPABILITIES</span>
       <h1>SECTOR-SPECIFIC<br/><span class="text-blue">HARDWARE ENGINEERING</span></h1>
       <p class="hero-desc">
@@ -137,9 +141,29 @@ const industrySectors = [
   .hero-section {
     background-color: var(--bg-dark);
     color: var(--bg-light);
-    padding: 10rem 2rem 4rem 2rem;
+    padding: 5rem 2rem 5rem 2rem;
     position: relative;
     border-bottom: 2px solid var(--brand-blue);
+    overflow: hidden;
+  }
+
+  .hero-bg-pattern {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image: var(--pattern-bg);
+    background-size: 90%;
+    background-position: right top;
+    background-repeat: no-repeat;
+    opacity: 0.25;
+    mask-image: linear-gradient(to right, transparent 0%, transparent 5%, black 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 5%, black 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
   }
 
   .eyebrow-text {
@@ -367,7 +391,7 @@ const industrySectors = [
     }
 
     .hero-section {
-      padding: 6rem 1.5rem 3rem 1.5rem;
+      padding: 4rem 1.5rem 3rem 1.5rem;
     }
 
     .hero-desc {
