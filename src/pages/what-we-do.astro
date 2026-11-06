@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/global/PageHero.astro';
 
 const serviceGroups = [
   {
@@ -90,15 +91,12 @@ const serviceGroups = [
 ---
 
 <Layout title="What We Do | Custom Solutions Manufacturing">
-  <section class="hero-section">
-    <div class="container">
-      <span class="eyebrow-text">CORE CAPABILITIES</span>
-      <h1>ENGINEERED FOR<br/><span class="text-blue">EXTREME PERFORMANCE</span></h1>
-      <p class="hero-desc">
-        End-to-end custom manufacturing, spanning 6 specialized capability groups built to handle single prototypes up to high-volume turnkey systems.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="CORE CAPABILITIES"
+    title="ENGINEERED FOR"
+    accent="EXTREME PERFORMANCE"
+    description="End-to-end custom manufacturing, spanning 6 specialized capability groups built to handle single prototypes up to high-volume turnkey systems."
+  />
 
   <div class="showcase-wrapper">
     {serviceGroups.map((group, index) => (
@@ -157,14 +155,6 @@ const serviceGroups = [
 </Layout>
 
 <style>
-  .hero-section {
-    background-color: var(--bg-dark);
-    color: var(--bg-light);
-    padding: 10rem 2rem 4rem 2rem;
-    position: relative;
-    border-bottom: 2px solid var(--brand-blue);
-  }
-
   .eyebrow-text {
     font-family: var(--font-saira);
     color: var(--brand-gray);
@@ -174,28 +164,6 @@ const serviceGroups = [
     margin-bottom: 1rem;
     display: block;
     text-transform: uppercase;
-  }
-
-  .hero-section h1 {
-    font-family: var(--font-saira);
-    font-size: clamp(3rem, 6vw, 4.5rem);
-    font-weight: 800;
-    line-height: 1.05;
-    text-transform: uppercase;
-    margin: 0 0 1.5rem 0;
-    letter-spacing: -0.5px;
-  }
-
-  .text-blue {
-    color: var(--brand-blue);
-  }
-
-  .hero-desc {
-    color: var(--brand-gray);
-    font-size: 1.2rem;
-    max-width: 680px;
-    line-height: 1.6;
-    margin: 0;
   }
 
   .container {
@@ -460,14 +428,6 @@ const serviceGroups = [
   }
 
   @media (max-width: 900px) {
-    .hero-section {
-      padding: 6rem 1.5rem 3rem 1.5rem;
-    }
-
-    .hero-desc {
-      font-size: 1rem;
-    }
-
     .capability-row {
       padding: 4rem 1.5rem;
     }

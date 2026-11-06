@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import heroPattern from '../assets/hero-pattern.svg';
+import PageHero from '../components/global/PageHero.astro';
 
 import technologyIcon from '../assets/industries/Industries-Technology-Icon.svg';
 import roboticsIcon from '../assets/industries/Industries-Robotics-Icon.svg';
@@ -82,17 +82,12 @@ const industrySectors = [
 ---
 
 <Layout title="Industries | Custom Solutions Manufacturing">
-  <section class="hero-section">
-    <div class="hero-bg-pattern" style={`--pattern-bg: url('${heroPattern.src}')`}></div>
-
-    <div class="container hero-content">
-      <span class="eyebrow-text">SECTOR CAPABILITIES</span>
-      <h1>SECTOR-SPECIFIC<br/><span class="text-blue">HARDWARE ENGINEERING</span></h1>
-      <p class="hero-desc">
-        Precision machining, structural fabrication, and automated turnkey systems built to exceed extreme operational criteria.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="SECTOR CAPABILITIES"
+    title="SECTOR-SPECIFIC"
+    accent="HARDWARE ENGINEERING"
+    description="Precision machining, structural fabrication, and automated turnkey systems built to exceed extreme operational criteria."
+  />
 
   <section class="showcase-section">
     <div class="container">
@@ -138,34 +133,6 @@ const industrySectors = [
 </Layout>
 
 <style>
-  .hero-section {
-    background-color: var(--bg-dark);
-    color: var(--bg-light);
-    padding: 5rem 2rem 5rem 2rem;
-    position: relative;
-    border-bottom: 2px solid var(--brand-blue);
-    overflow: hidden;
-  }
-
-  .hero-bg-pattern {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background-image: var(--pattern-bg);
-    background-size: 90%;
-    background-position: right top;
-    background-repeat: no-repeat;
-    opacity: 0.25;
-    mask-image: linear-gradient(to right, transparent 0%, transparent 5%, black 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 5%, black 100%);
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-  }
-
   .eyebrow-text {
     font-family: var(--font-saira);
     color: var(--brand-gray);
@@ -175,28 +142,6 @@ const industrySectors = [
     margin-bottom: 1rem;
     display: block;
     text-transform: uppercase;
-  }
-
-  .hero-section h1 {
-    font-family: var(--font-saira);
-    font-size: clamp(3rem, 6vw, 4.5rem);
-    font-weight: 800;
-    line-height: 1.05;
-    text-transform: uppercase;
-    margin: 0 0 1.5rem 0;
-    letter-spacing: -0.5px;
-  }
-
-  .text-blue {
-    color: var(--brand-blue);
-  }
-
-  .hero-desc {
-    color: var(--brand-gray);
-    font-size: 1.2rem;
-    max-width: 680px;
-    line-height: 1.6;
-    margin: 0;
   }
 
   .container {
@@ -388,14 +333,6 @@ const industrySectors = [
     .sectors-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;
-    }
-
-    .hero-section {
-      padding: 4rem 1.5rem 3rem 1.5rem;
-    }
-
-    .hero-desc {
-      font-size: 1rem;
     }
 
     .showcase-section {

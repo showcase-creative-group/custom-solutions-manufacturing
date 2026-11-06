@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/global/PageHero.astro';
 
 const projects = [
   {
@@ -66,15 +67,12 @@ const projects = [
 ---
 
 <Layout title="Case Studies & Projects | Custom Solutions Manufacturing">
-  <section class="hero-section">
-    <div class="container">
-      <span class="eyebrow-text">OUR WORK</span>
-      <h1>FEATURED<br/><span class="text-blue">PROJECT BUILDS</span></h1>
-      <p class="hero-desc">
-        Explore recent custom machinery builds, multi-axis machining applications, and turnkey industrial system integrations.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="OUR WORK"
+    title="FEATURED"
+    accent="PROJECT BUILDS"
+    description="Explore recent custom machinery builds, multi-axis machining applications, and turnkey industrial system integrations."
+  />
 
   <section class="showcase-section">
     <div class="container">
@@ -112,14 +110,6 @@ const projects = [
 </Layout>
 
 <style>
-  .hero-section {
-    background-color: var(--bg-dark);
-    color: var(--bg-light);
-    padding: 10rem 2rem 4rem 2rem;
-    position: relative;
-    border-bottom: 2px solid var(--brand-blue);
-  }
-
   .eyebrow-text {
     font-family: var(--font-saira);
     color: var(--brand-gray);
@@ -129,28 +119,6 @@ const projects = [
     margin-bottom: 1rem;
     display: block;
     text-transform: uppercase;
-  }
-
-  .hero-section h1 {
-    font-family: var(--font-saira);
-    font-size: clamp(3rem, 6vw, 4.5rem);
-    font-weight: 800;
-    line-height: 1.05;
-    text-transform: uppercase;
-    margin: 0 0 1.5rem 0;
-    letter-spacing: -0.5px;
-  }
-
-  .text-blue {
-    color: var(--brand-blue);
-  }
-
-  .hero-desc {
-    color: var(--brand-gray);
-    font-size: 1.2rem;
-    max-width: 680px;
-    line-height: 1.6;
-    margin: 0;
   }
 
   .container {
@@ -291,14 +259,6 @@ const projects = [
     .projects-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;
-    }
-
-    .hero-section {
-      padding: 6rem 1.5rem 3rem 1.5rem;
-    }
-
-    .hero-desc {
-      font-size: 1rem;
     }
 
     .showcase-section {

@@ -1,0 +1,101 @@
+---
+import heroPattern from '../../assets/hero-pattern.svg';
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  accent: string;
+  description: string;
+}
+
+const { eyebrow, title, accent, description } = Astro.props;
+---
+
+<section class="hero-section">
+  <div class="hero-bg-pattern" style={`--pattern-bg: url('${heroPattern.src}')`}></div>
+
+  <div class="container hero-content">
+    <span class="eyebrow-text">{eyebrow}</span>
+    <h1>{title}<br /><span class="text-blue">{accent}</span></h1>
+    <p class="hero-desc">{description}</p>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    background-color: var(--bg-dark);
+    color: var(--bg-light);
+    padding: 5rem 2rem;
+    position: relative;
+    border-bottom: 2px solid var(--brand-blue);
+    overflow: hidden;
+  }
+
+  .hero-bg-pattern {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image: var(--pattern-bg);
+    background-size: 90%;
+    background-position: right top;
+    background-repeat: no-repeat;
+    opacity: 0.25;
+    mask-image: linear-gradient(to right, transparent 0%, transparent 5%, black 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 5%, black 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .container {
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .eyebrow-text {
+    font-family: var(--font-saira);
+    color: var(--brand-gray);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    display: block;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: var(--font-saira);
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -0.5px;
+  }
+
+  .text-blue {
+    color: var(--brand-blue);
+  }
+
+  .hero-desc {
+    color: var(--brand-gray);
+    font-size: 1.2rem;
+    max-width: 680px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .hero-section {
+      padding: 4rem 1.5rem 3rem 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+    }
+  }
+</style>
